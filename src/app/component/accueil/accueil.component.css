@@ -6,11 +6,12 @@
 
 
 *{
-  background-image: url("../../../assets/img/movie.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+
 }
 
 div{
+  background-image: url("../../../assets/img/movie.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   height: 100%;
 }
