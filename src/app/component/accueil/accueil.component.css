@@ -1,0 +1,16 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+*{
+  background-image: url("../../../assets/img/movie.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+div{
+  height: 100%;
+}
