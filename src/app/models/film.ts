@@ -8,6 +8,6 @@ export interface Film {
   budget?: number;
   montantRecette?: number;
   dateSortie?: Date;
-  realisateur: Realisateur;
-  categorie: Categorie;
+  realisateur?: Realisateur;
+  categorie?: Categorie;
 }
