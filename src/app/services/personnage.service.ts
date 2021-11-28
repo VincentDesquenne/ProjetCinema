@@ -1,7 +1,6 @@
 import {Realisateur} from '../models/realisateur';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {CrudService} from './crud-service';
 import {Personnage} from '../models/personnage';
 
 const personnageList: Personnage[] = [
@@ -17,8 +16,6 @@ const personnageList: Personnage[] = [
 ];
 
 @Injectable()
-export class PersonnageService extends CrudService<Personnage> {
-  constructor(http: HttpClient) {
-    super(http, "personnage");
-  }
+export class PersonnageService{
+
 }

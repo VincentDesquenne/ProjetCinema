@@ -1,5 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
 body {
+  /*background: rgb(131,0,0);
+  background: linear-gradient(180deg, rgba(131,0,0,1) 0%, rgba(116,0,0,1) 0%, rgba(0,0,0,1) 75%);*/
+  background: url("assets/img/movie.jpg");
   height: 100vh;
   overflow: hidden;
+  font-family: 'Vollkorn', serif;
 }
+
+html, body { height: 100%; }
+

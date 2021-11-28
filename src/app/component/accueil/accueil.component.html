@@ -1,3 +1,62 @@
-<div>
-  <p>acceuils works</p>
+<app-navbar></app-navbar>
+<div class="movie-list-container">
+  <h1 class="movie-list-title">Quelques films...</h1>
+  <div class="movie-list-wrapper">
+    <div class="movie-list" #movieList [style.transform] = "transf">
+      <div class="movie-list-item">
+        <img class="movie-list-item-img" src="../../../assets/img/demon_slayer.jpg" alt="">
+        <span class="movie-list-item-title">Her</span>
+        <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+          hic fugit similique accusantium.</p>
+        <ng-rating-bar class="movie-list-item-rate"
+          [value]="2.7"
+          [ratingCount]="5"
+          [disabled]="true"
+        ></ng-rating-bar>
+      </div>
+      <div class="movie-list-item">
+        <img class="movie-list-item-img" src="../../../assets/img/le_seigneur_des_anneaux.jpg" alt="">
+        <span class="movie-list-item-title">Star Wars</span>
+        <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+          hic fugit similique accusantium.</p>
+        <ng-rating-bar class="movie-list-item-rate"
+                       [value]="2.7"
+                       [ratingCount]="5"
+                       [disabled]="true"
+        ></ng-rating-bar>
+      </div>
+      <div class="movie-list-item">
+        <img class="movie-list-item-img" src="../../../assets/img/harry_potter.jpg" alt="">
+        <span class="movie-list-item-title">Storm</span>
+        <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+          hic fugit similique accusantium.</p>
+      </div>
+      <div class="movie-list-item">
+        <img class="movie-list-item-img" src="../../../assets/img/demon_slayer.jpg" alt="">
+        <span class="movie-list-item-title">1917</span>
+        <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+          hic fugit similique accusantium.</p>
+      </div>
+      <div class="movie-list-item">
+        <img class="movie-list-item-img" src="../../../assets/img/demon_slayer.jpg" alt="">
+        <span class="movie-list-item-title">Avengers</span>
+        <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+          hic fugit similique accusantium.</p>
+      </div>
+      <div class="movie-list-item">
+        <img class="movie-list-item-img" src="../../../assets/img/demon_slayer.jpg" alt="">
+        <span class="movie-list-item-title">Her</span>
+        <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+          hic fugit similique accusantium.</p>
+      </div>
+      <div class="movie-list-item">
+        <img class="movie-list-item-img" src="../../../assets/img/demon_slayer.jpg" alt="">
+        <span class="movie-list-item-title">Her</span>
+        <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+          hic fugit similique accusantium.</p>
+      </div>
+    </div>
+    <i class="fas fa-chevron-right arrow" (click)="clickArrow()"></i>
+  </div>
 </div>
+

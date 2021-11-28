@@ -1,0 +1,19 @@
+img {
+  width: 250px;
+}
+
+.container{
+  text-align: center;
+  margin-top:35px;
+  color:white;
+}
+
+.container .container-title{
+  margin-bottom:40px;
+}
+
+.container a{
+  text-decoration: none;
+  color: white;
+}
+

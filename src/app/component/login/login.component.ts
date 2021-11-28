@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  containerStyle: any;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.containerStyle = "container";
+  }
+
+  signIn(): void {
+    this.containerStyle = "container";
+  }
+
+  signUp(): void {
+    this.containerStyle = "container right-panel-active";
   }
 
 }

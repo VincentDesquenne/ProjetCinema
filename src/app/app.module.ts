@@ -7,6 +7,9 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AccueilComponent } from './component/accueil/accueil.component';
 import { LoginComponent } from './component/login/login.component';
+import {NgRatingBarModule} from 'ng-rating-bar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WelcomeComponent } from './component/welcome/welcome.component';
 
 
 
@@ -17,11 +20,13 @@ import { LoginComponent } from './component/login/login.component';
     FooterComponent,
     AccueilComponent,
     LoginComponent,
-
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgRatingBarModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
