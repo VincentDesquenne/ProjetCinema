@@ -3,7 +3,7 @@
   <h1 class="movie-list-title">Quelques films...</h1>
   <div class="movie-list-wrapper">
     <div class="movie-list" #movieList [style.transform] = "transf">
-      <div class="movie-list-item">
+      <div class="movie-list-item" (click)="openFilm()">
         <img class="movie-list-item-img" src="../../../assets/img/demon_slayer.jpg" alt="">
         <span class="movie-list-item-title">Her</span>
         <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At

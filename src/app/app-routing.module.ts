@@ -3,16 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 import {NavbarComponent} from './shared/navbar/navbar.component';
 import {WelcomeComponent} from './component/welcome/welcome.component';
 import {LoginComponent} from './component/login/login.component';
-import {AccueilComponent} from './component/accueil/accueil.component';
+import {FilmComponent} from './component/film/film.component';
+import {ViewFilmComponent} from './component/view-film/view-film.component';
+import {ActeurComponent} from './component/acteur/acteur.component';
 
 
 
 const routes : Routes =  [
 
-  { path: '', redirectTo : '/welcome', pathMatch: 'full'  },
+  { path: '', redirectTo : '/connexion', pathMatch: 'full'  },
   { path: 'connexion', component: LoginComponent },
-  { path: 'films', component: AccueilComponent },
-  { path: 'welcome', component: WelcomeComponent }
+  { path: 'films', component: FilmComponent },
+  { path: 'film/:noFilm', component:ViewFilmComponent},
+  { path: 'welcome', component: WelcomeComponent },
+  { path: 'acteurs', component: ActeurComponent },
 ]
 
 @NgModule({

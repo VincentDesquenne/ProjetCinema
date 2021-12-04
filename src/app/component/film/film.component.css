@@ -12,15 +12,16 @@
 
 .movie-list-wrapper {
   position: relative;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .movie-list {
   display: flex;
-  align-items: center;
+  /*align-items: center;*/
   height: 750px;
   transform: translateX(0);
   transition: all 1s ease-in-out;
+  margin-top: 20px;
 }
 
 .movie-list-item {
@@ -101,7 +102,7 @@
 .arrow {
   font-size: 120px;
   position: absolute;
-  top: 300px;
+  top: 130px;
   right: 0;
   color: lightgray;
   opacity: 0.5;
@@ -113,11 +114,8 @@
 .arrow:hover {
   font-size: 150px;
   position: absolute;
-  top: 300px;
-  right: 0;
   color: white;
-  opacity: 0.5;
-  cursor: pointer;
+  opacity: 1;
 }
 
 .container.active {

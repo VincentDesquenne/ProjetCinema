@@ -4,4 +4,5 @@ export interface Acteur {
   prenAct?: string;
   dateNaiss?: Date;
   dateDeces?: Date;
+  photo?: any;
 }

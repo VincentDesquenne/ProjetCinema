@@ -1,0 +1,29 @@
+img {
+  width: 500px;
+  height: 650px;
+}
+
+.container{
+  font-size: 22px;
+}
+
+.titre-date{
+  display: flex;
+}
+
+.date {
+  margin:auto auto;
+}
+
+.date p{
+  margin:10px;
+}
+
+.titre-date h1 {
+  font-size: inherit;
+  font-size: 4rem;
+}
+
+.rating span{
+  font-size: 36px;
+}

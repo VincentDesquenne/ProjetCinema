@@ -2,13 +2,14 @@ import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
 import {FilmService} from '../../services/film.service';
 import {Film} from '../../models/film';
 import {DOCUMENT} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-accueil',
-  templateUrl: './accueil.component.html',
-  styleUrls: ['./accueil.component.css']
+  selector: 'app-film',
+  templateUrl: './film.component.html',
+  styleUrls: ['./film.component.css']
 })
-export class AccueilComponent implements OnInit {
+export class FilmComponent implements OnInit {
   @ViewChild('movieList', { static: true }) maDiv: ElementRef;
 
   private mesFilms : Film[];
@@ -28,7 +29,7 @@ export class AccueilComponent implements OnInit {
 
   ];
 
-  constructor() {
+  constructor(private routeur: Router) {
     this.transf = "translateX(0)";
     this.nbClics = 0;
   }
@@ -36,6 +37,10 @@ export class AccueilComponent implements OnInit {
   ngOnInit(): void {
     this.findFilms();
     console.log(this.maDiv);
+  }
+
+  openFilm(): void{
+    this.routeur.navigate(['/film/'+ this.mesFilms[0].noFilm]);
   }
 
   findFilms() : void {

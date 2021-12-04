@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-sm-4">
+        <img src="../../../assets/img/demon_slayer.jpg" alt="test">
+    </div>
+    <div class="col-lg-6 col-sm-8">
+        <div class="titre-date">
+          <div>
+            <h1>{{film.titre}}</h1>
+          </div>
+          <div class="date">
+            <p>Le 28 novembre</p>
+          </div>
+         </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+          hic fugit similique accusantium.</p>
+        <p>Par Jean-Luc Besson</p>
+        <p>Avec Jean Dujardin, Brad Pitt, Leonardo Di Caprio</p>
+        <p>Durée : 1h36</p>
+        <p>Catégories : Action, Aventure, Science-fiction</p>
+      <div class="rating">
+      <ng-rating-bar class="movie-list-item-rate"
+                     [value]="4.3"
+                     [ratingCount]="5"
+                     [disabled]="true" [styles]="styles"
+      ></ng-rating-bar></div>
+    </div>
+  </div>
+</div>
