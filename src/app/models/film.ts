@@ -2,14 +2,14 @@ import {Categorie} from './categorie';
 import {Realisateur} from './realisateur';
 
 export interface Film {
-  noFilm?: number;
+  id?: number;
   titre?: string;
   description?: string;
   duree?: number;
   budget?: number;
   montantRecette?: number;
   dateSortie?: Date;
-  realisateur?: Realisateur;
-  categorie?: Categorie;
+  noRea?: string;
+  codeCat?: string;
   note?: string;
 }

@@ -27,3 +27,8 @@ img {
 .rating span{
   font-size: 36px;
 }
+
+.container {
+  margin-top: 45px;
+  color:white;
+}

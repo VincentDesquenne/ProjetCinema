@@ -13,6 +13,12 @@ import { WelcomeComponent } from './component/welcome/welcome.component';
 import { ViewFilmComponent } from './component/view-film/view-film.component';
 import { ActeurComponent } from './component/acteur/acteur.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {FilmService} from './services/film.service';
+import {ActeurService} from './services/acteur.service';
+import {PersonnageService} from './services/personnage.service';
+import {RealisateurService} from './services/realisateur.service';
+import {CategorieService} from './services/categorie.service';
+import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
 import { AjoutActeurComponent } from './component/ajout-acteur/ajout-acteur.component';
 import { AjoutFilmComponent } from './component/ajout-film/ajout-film.component';
 import { AjoutPersonnageComponent } from './component/ajout-personnage/ajout-personnage.component';
@@ -41,8 +47,9 @@ import { AjoutCategorieComponent } from './component/ajout-categorie/ajout-categ
     NgRatingBarModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [FilmService, ActeurService, PersonnageService, RealisateurService, CategorieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Film} from '../../models/film';
 import {Acteur} from '../../models/acteur';
+import {ActeurService} from '../../services/acteur.service';
 
 @Component({
   selector: 'app-acteur',
@@ -9,94 +10,25 @@ import {Acteur} from '../../models/acteur';
 })
 export class ActeurComponent implements OnInit {
 
-  public page:any;
-  public acteurList: Acteur[] = [
-    {
-      noAct:1,
-      nomAct: "Dujardin",
-      prenAct: "Jean",
-      dateNaiss: new Date(1972,6,19),
-      photo: "../../../assets/img/jeandujardin.jpg"
-    },
-    {
-      noAct:1,
-      nomAct: "Dujardin",
-      prenAct: "Jean",
-      dateNaiss: new Date(1972,6,19),
-      photo: "../../../assets/img/jeandujardin.jpg"
-    },
-    {
-      noAct:1,
-      nomAct: "Dujardin",
-      prenAct: "Jean",
-      dateNaiss: new Date(1972,6,19),
-      photo: "../../../assets/img/jeandujardin.jpg"
-    },
-    {
-      noAct:1,
-      nomAct: "Dujardin",
-      prenAct: "Jean",
-      dateNaiss: new Date(1972,6,19),
-      photo: "../../../assets/img/jeandujardin.jpg"
-    },
-    {
-      noAct:1,
-      nomAct: "Dujardin",
-      prenAct: "Jean",
-      dateNaiss: new Date(1972,6,19),
-      photo: "../../../assets/img/jeandujardin.jpg"
-    },
-    {
-      noAct:1,
-      nomAct: "Dujardin",
-      prenAct: "Jean",
-      dateNaiss: new Date(1972,6,19),
-      photo: "../../../assets/img/jeandujardin.jpg"
-    },
-    {
-      noAct:1,
-      nomAct: "Dujardin",
-      prenAct: "Jean",
-      dateNaiss: new Date(1972,6,19),
-      dateDeces: new Date()
-    },
-    {
-      noAct:1,
-      nomAct: "Dujardin",
-      prenAct: "Jean",
-      dateNaiss: new Date(1972,6,19),
-      photo: "../../../assets/img/jeandujardin.jpg"
-    },
-    {
-      noAct:1,
-      nomAct: "Dujardin",
-      prenAct: "Jean",
-      dateNaiss: new Date(1972,6,19),
-      photo: "../../../assets/img/jeandujardin.jpg"
-    },
-    {
-      noAct:1,
-      nomAct: "Dujardin",
-      prenAct: "Jean",
-      dateNaiss: new Date(1972,6,19),
-      photo: "../../../assets/img/jeandujardin.jpg"
-    },
-    {
-      noAct:1,
-      nomAct: "Dujardin",
-      prenAct: "Jean",
-      dateNaiss: new Date(1972,6,19),
-      photo: "../../../assets/img/jeandujardin.jpg"
-    },
+  public page: any;
+  public mesActeurs: Acteur[];
 
-  ];
-
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private acteurService: ActeurService) {
   }
 
-  public onPageChanged(event){
+  ngOnInit(): void {
+    this.findActeurs();
+  }
+
+  findActeurs(): void {
+    this.acteurService.getActeursListe().subscribe(
+      (acteurs) => {
+        this.mesActeurs = acteurs;
+      }
+    );
+  }
+
+  public onPageChanged(event) {
     this.page = event;
 
   }

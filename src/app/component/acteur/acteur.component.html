@@ -3,7 +3,7 @@
 <div class="container">
 <div class="flex flex-wrap" style="display: inline-flex">
 
-  <div class="container-acteur" *ngFor="let user of acteurList | paginate: { itemsPerPage: 9, currentPage: page }">
+  <div class="container-acteur" *ngFor="let user of mesActeurs | paginate: { itemsPerPage: 9, currentPage: page }">
 
 
 
@@ -21,11 +21,11 @@
               <div class="col-lg-8 col-md-6 col-12 my-auto">
                 <div class="card-body ps-lg-0">
                   <div class="d-inline">
-                    <h5 class="mb-0">{{user.prenAct}}</h5>
-                    <h5 class="mb-0">{{user.nomAct}}</h5>
+                    <h5 class="mb-0">{{user.prenom}}</h5>
+                    <h5 class="mb-0">{{user.nom}}</h5>
                   </div>
-                  <p class="mb-0">Né le {{user.dateNaiss | date: "dd/MM/yyyy"}}</p>
-                  <p class="mb-0" *ngIf="user.dateDeces">Mort le {{user.dateDeces | date: "dd/MM/yyyy"}}</p>
+                  <p class="mb-0">Né le {{user.naissance | date: "dd/MM/yyyy"}}</p>
+                  <p class="mb-0" *ngIf="user.deces">Mort le {{user.deces | date: "dd/MM/yyyy"}}</p>
                 </div>
               </div>
             </div>
@@ -38,7 +38,7 @@
 
 </div>
 
-<div *ngIf="acteurList" fxLayout="row wrap">
+<div *ngIf="mesActeurs" fxLayout="row wrap">
   <div fxFlex="100" class="p-2">
     <mat-card class="p-0 text-center pages">
       <pagination-controls previousLabel="Précédent" nextLabel="Suivant" class="annular-pagination" autoHide="true"

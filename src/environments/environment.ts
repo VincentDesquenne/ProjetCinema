@@ -4,13 +4,9 @@
 
 export const environment = {
   production: false,
-  api: {
-    url: "http://localhost:8000/api/v3/",
-    public_url: "http://localhost:8000/api/public/",
-    file_url: "http://localhost:8000/",
-
-    key: ""
-  },
+  endpoint : 'http://localhost:8080/'
+  // const    ENDPOINT = "http://192.168.225.121:8080/";
+  // const    ENDPOINT = "http://localhost:8080/ProjetCerisaie/";
 };
 
 /*

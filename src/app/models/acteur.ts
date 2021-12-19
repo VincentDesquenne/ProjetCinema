@@ -1,8 +1,8 @@
 export interface Acteur {
-  noAct?: number;
-  nomAct?: string;
-  prenAct?: string;
-  dateNaiss?: Date;
-  dateDeces?: Date;
+  id?: number;
+  nom?: string;
+  prenom?: string;
+  naissance?: Date;
+  deces?: Date;
   photo?: any;
 }

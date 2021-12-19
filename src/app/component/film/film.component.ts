@@ -12,39 +12,34 @@ import {Router} from '@angular/router';
 export class FilmComponent implements OnInit {
   @ViewChild('movieList', { static: true }) maDiv: ElementRef;
 
-  private mesFilms : Film[];
+  public mesFilms : Film[];
   nbClics: number;
   transf: string;
   movieList: any;
 
-  private filmList: Film[] = [
-    {
-      noFilm:1,
-      titre: "Demon Slayer",
-      budget: 50000,
-      note: "2.75",
-      duree: 120,
 
-    },
-
-  ];
-
-  constructor(private routeur: Router) {
+  constructor(private filmService: FilmService, private routeur: Router) {
     this.transf = "translateX(0)";
     this.nbClics = 0;
   }
 
   ngOnInit(): void {
     this.findFilms();
-    console.log(this.maDiv);
+    //console.log(this.maDiv);
   }
 
-  openFilm(): void{
-    this.routeur.navigate(['/film/'+ this.mesFilms[0].noFilm]);
+  openFilm(film): void{
+    this.routeur.navigate(['/film/'+ film.id]);
   }
 
   findFilms() : void {
-    this.mesFilms = this.filmList;
+    this.filmService.getFilmsListe().subscribe(
+      (films)  => {this.mesFilms = films ;}
+    )
+  }
+
+  getNote(film) : void {
+    return film.note;
   }
 
   getValeurTransf(s) : number {
@@ -67,7 +62,7 @@ export class FilmComponent implements OnInit {
     let ratio = Math.floor(window.innerWidth / 540);
     console.log(this.getValeurTransf(this.maDiv.nativeElement.style.transform));
     //TODO Changer 7 par la liste des films lorsque celle-ci sera complète
-    if (7 - (4 + this.nbClics) + (4 - ratio) >= 0){
+    if (this.mesFilms.length - (4 + this.nbClics) + (4 - ratio) >= 0){
       this.transf = `translateX(${
         this.getValeurTransf(this.maDiv.nativeElement.style.transform) - 500
       }px)`;
