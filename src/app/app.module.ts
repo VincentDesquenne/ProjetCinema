@@ -13,6 +13,10 @@ import { WelcomeComponent } from './component/welcome/welcome.component';
 import { ViewFilmComponent } from './component/view-film/view-film.component';
 import { ActeurComponent } from './component/acteur/acteur.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { AjoutActeurComponent } from './component/ajout-acteur/ajout-acteur.component';
+import { AjoutFilmComponent } from './component/ajout-film/ajout-film.component';
+import { AjoutPersonnageComponent } from './component/ajout-personnage/ajout-personnage.component';
+import { AjoutCategorieComponent } from './component/ajout-categorie/ajout-categorie.component';
 
 
 
@@ -26,6 +30,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
     WelcomeComponent,
     ViewFilmComponent,
     ActeurComponent,
+    AjoutActeurComponent,
+    AjoutFilmComponent,
+    AjoutPersonnageComponent,
+    AjoutCategorieComponent,
   ],
   imports: [
     BrowserModule,

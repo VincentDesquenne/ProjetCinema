@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+
+<div class="testbox">
+  <form action="/">
+    <h3>Ajout d'un film</h3>
+    <div class="colums">
+      <div class="item">
+        <label>Titre</label>
+        <input placeholder="Inception" id="titre" type="text"/>
+      </div>
+      <div class="item">
+        <label>Durée en min</label>
+        <input placeholder="180" id="duree" type="text"/>
+      </div>
+      <div class="item">
+        <label>Date de sortie</label>
+        <input placeholder="jj-mm-aaaa" id="date_sortie" type="text"/>
+      </div>
+      <div class="item">
+        <label>Budget</label>
+        <input placeholder="100000" id="budget" type="float"/>
+      </div>
+      <div class="item">
+        <label>Recette</label>
+        <input placeholder="985 000" id="recette" type="float">
+      </div>
+      <div class="item">
+        <label>Note sur 5</label>
+        <input placeholder="3,5" id="note" type="text"/>
+      </div>
+    </div>
+    <div class="item">
+      <label>Catégorie</label>
+      <select id="categorie" style="width:425px; height: 30px">
+        <option value="1">Action</option>
+        <option value="2">Comédie</option>
+        <option value="3">Western</option>
+        <option value="4">Policier</option>
+      </select>
+    </div>
+    <div class="btn-block">
+      <button type="submit" href="/">Ajouter</button>
+    </div>
+  </form>
+</div>
