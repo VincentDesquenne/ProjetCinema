@@ -23,6 +23,10 @@ import { AjoutActeurComponent } from './component/ajout-acteur/ajout-acteur.comp
 import { AjoutFilmComponent } from './component/ajout-film/ajout-film.component';
 import { AjoutPersonnageComponent } from './component/ajout-personnage/ajout-personnage.component';
 import { AjoutCategorieComponent } from './component/ajout-categorie/ajout-categorie.component';
+import {ConnexionService} from './services/connexion.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -48,8 +52,12 @@ import { AjoutCategorieComponent } from './component/ajout-categorie/ajout-categ
     BrowserAnimationsModule,
     NgxPaginationModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
-  providers: [FilmService, ActeurService, PersonnageService, RealisateurService, CategorieService],
+  providers: [FilmService, ActeurService, PersonnageService, RealisateurService, CategorieService, ConnexionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

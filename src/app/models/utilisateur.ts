@@ -1,9 +1,9 @@
 export class Utilisateur {
-    
-    public  numUtil : number;
-    public  nomUtil : string;
-    public  motPasse : string;
-    public  salt : string;
+
+    public surname: string;
+    public forname: string;
+    public  email : string;
+    public  mdp : string;
     public  role : string;
 
     }

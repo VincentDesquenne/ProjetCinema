@@ -1,20 +1,29 @@
 <app-navbar></app-navbar>
 <div id="container" [ngClass]="containerStyle">
   <div class="form-container sign-up-container">
-    <form action="#">
+    <form [formGroup]="loginForm" (ngSubmit)="inscription()">
       <h1>Créer un compte</h1>
-      <input type="text" placeholder="Nom" />
-      <input type="email" placeholder="Email" />
-      <input type="password" placeholder="Mot de passe" />
+      <mat-form-field>
+        <input matInput type="text" placeholder="Nom" [formControl]="nomControl"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="text" placeholder="Prénom" [formControl]="prenomControl"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="email" placeholder="Email" [formControl]="emailControl"/>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Mot de passe" [formControl]="mdpControl"/>
+      </mat-form-field>
       <button>Valider</button>
     </form>
   </div>
   <div class="form-container sign-in-container">
-    <form action="#">
+    <form>
       <h1>Se connecter</h1>
-      <input type="email" placeholder="Email" />
-      <input type="password" placeholder="Mot de passe" />
-      <button><a href="/welcome">Se connecter</a></button>
+      <input type="email" placeholder="Email"/>
+      <input type="password" placeholder="Mot de passe"/>
+      <button (click)="valider()">Se connecter</button>
     </form>
   </div>
   <div class="overlay-container">
