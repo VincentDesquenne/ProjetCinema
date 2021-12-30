@@ -1,6 +1,6 @@
 export interface Categorie {
   id?: number;
   codeCat?: string;
-  libelleCat?: string;
+  libelle?: string;
   image?: string;
 }

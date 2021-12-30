@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Utilisateur} from '../../models/utilisateur';
 import {ConnexionService} from '../../services/connexion.service';
 import {Router} from '@angular/router';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Form, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   private errorMessage: string = '';
   private reponse : Response;
   loginForm : FormGroup;
+  connexionForm: FormGroup;
 
   constructor(private unCS: ConnexionService, private router: Router) { }
 
@@ -25,6 +26,8 @@ export class LoginComponent implements OnInit {
   prenomControl: FormControl = new FormControl("", Validators.required);
   mdpControl: FormControl = new FormControl("", Validators.required);
   emailControl: FormControl = new FormControl("", [Validators.required, Validators.email]);
+  nomUtilControl: FormControl = new FormControl("", Validators.required);
+  motPasseControl: FormControl = new FormControl("", Validators.required);
 
   ngOnInit(): void {
     this.containerStyle = "container";
@@ -34,6 +37,10 @@ export class LoginComponent implements OnInit {
       mdp: this.mdpControl,
       email: this.emailControl,
     });
+    this.connexionForm = new FormGroup({
+      nomUtil: this.nomUtilControl,
+      motPasse: this.motPasseControl
+    })
   }
 
   signIn(): void {
@@ -50,14 +57,13 @@ export class LoginComponent implements OnInit {
     let unUt: Utilisateur;
 
     unUt = new Utilisateur();
-    unUt.email = this.userLogin;
-    unUt.mdp = this.userMdp;
+    unUt.motPasse = this.motPasseControl.value;
+    unUt.nomUtil = this.nomUtilControl.value;
     this.unCS.getLogin(unUt).subscribe(
       reponse  => {
-        console.log(reponse.token);
-        alert('Authentification réussie !!!');
-        // on sauvegarde le token danune variable de session
-        window.localStorage.setItem("token", reponse.token);
+        window.localStorage.setItem("user", reponse.email);
+        window.localStorage.setItem("role", reponse.role);
+
         this.router.navigate(['/welcome']);
 
       },
@@ -81,7 +87,6 @@ export class LoginComponent implements OnInit {
     unUt.mdp = this.mdpControl.value;
     this.unCS.inscription(unUt).subscribe(
       reponse  => {
-        console.log(reponse.token);
         alert('Inscription réussie !!!');
         this.router.navigate(['/welcome']);
 

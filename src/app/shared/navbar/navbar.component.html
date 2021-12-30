@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Cinema EPUL</a>
+    <a class="navbar-brand" [href]="cinemaepul">Cinema EPUL</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown" *ngIf="connected">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkFilms" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,6 +40,11 @@
             <li><a class="dropdown-item disabled" href="#">Voir les personnages</a></li>
             <li><a class="dropdown-item" href="/ajout-perso">Ajouter un personnage</a></li>
           </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" role="button" aria-expanded="false" (click)="deconnexion()">
+            Se déconnecter
+          </a>
         </li>
       </ul>
     </div>

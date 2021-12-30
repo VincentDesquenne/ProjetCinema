@@ -1,16 +1,15 @@
 <app-navbar></app-navbar>
 <div class="movie-list-container">
-  <h1 class="movie-list-title">Quelques films...</h1>
+  <h1 class="movie-list-title">Films de notre bibliothèque</h1>
   <div class="movie-list-wrapper">
     <div class="movie-list" #movieList [style.transform] = "transf">
       <div class="movie-list-item" *ngFor="let film of mesFilms" (click)="openFilm(film)">
         <img class="movie-list-item-img" src="../../../assets/img/demon_slayer.jpg" alt="image film">
         <span class="movie-list-item-title">{{film.titre}}</span>
-        <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-          hic fugit similique accusantium.</p>
+        <p class="movie-list-item-desc">{{longmax(film.description)}}</p>
         <ng-rating-bar class="movie-list-item-rate"
                        [value]="getNote(film)"
-                       [ratingCount]="5"
+                       [ratingCount]="10"
                        [disabled]="true"
         ></ng-rating-bar>
       </div>

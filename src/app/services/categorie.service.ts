@@ -38,7 +38,7 @@ export class CategorieService {
 
 // On recherche le categorie
 
-  getCategorieId(id: number): Observable<Categorie> {
+  getCategorieId(id: string): Observable<Categorie> {
 
     this.categorieUrl = ENDPOINT + 'categorie/getUneCategorieById/' + id;
     return this.httpCategorie.get<Categorie>(this.categorieUrl, {headers: this.mesHeaders});

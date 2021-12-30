@@ -34,6 +34,13 @@ export class PersonnageService {
 
   }
 
+  getPersonnagesFilm(id: number): Observable<any> {
+
+    this.personnageUrl = ENDPOINT + 'personnage/getPersonnagesByFilm/' + id;
+    return this.httpPersonnage.get(this.personnageUrl, {headers: this.mesHeaders});
+
+  }
+
 // Modification d'un personnage
 
 // On recherche le personnage

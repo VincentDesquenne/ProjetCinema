@@ -1,5 +1,5 @@
 export interface Realisateur {
   noRea?: number;
-  nomRea?: string;
-  prenRea?: string;
+  nom?: string;
+  prenom?: string;
 }

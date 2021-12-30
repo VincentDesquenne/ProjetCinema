@@ -9,7 +9,7 @@ export interface Film {
   budget?: number;
   montantRecette?: number;
   dateSortie?: Date;
-  noRea?: string;
+  noRea?: number;
   codeCat?: string;
   note?: string;
 }

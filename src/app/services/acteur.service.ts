@@ -34,6 +34,15 @@ export class ActeurService {
 
   }
 
+  getActeursFilm(id: number): Observable<any> {
+
+    this.acteurUrl = ENDPOINT + 'acteur/getActeurByFilm/' + id;
+    return this.httpActeur.get(this.acteurUrl, {headers: this.mesHeaders});
+
+  }
+
+
+
 // Modification d'un acteur
 
 // On recherche le acteur
@@ -44,6 +53,8 @@ export class ActeurService {
     return this.httpActeur.get<Acteur>(this.acteurUrl, {headers: this.mesHeaders});
 
   }
+
+
 
 // On modifie un acteur
   updateActeur(unC: Acteur): Observable<any> {

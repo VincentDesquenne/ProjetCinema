@@ -38,6 +38,14 @@ export class FilmComponent implements OnInit {
     )
   }
 
+  longmax(description) {
+    if(description.length > 75){
+      return description.substring(0, 75) + "...";
+    } else {
+      return description;
+    }
+  }
+
   getNote(film) : void {
     return film.note;
   }

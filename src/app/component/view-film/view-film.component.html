@@ -13,18 +13,29 @@
             <p>Le {{film.dateSortie | date:"dd/MM/yyyy"}}</p>
           </div>
          </div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-          hic fugit similique accusantium.</p>
-        <p>Par Luc Besson</p>
-        <p>Avec Jean Dujardin, Brad Pitt, Leonardo Di Caprio</p>
+        <p style="text-align: justify">{{film.description}}</p>
+        <p>Par {{realisateur.prenom}} {{realisateur.nom}}</p>
+
+        <div style="display: inline-flex">
+          <p>Avec </p>
+          <p>&nbsp; {{listeAct(acteurs)}}</p>
+        </div>
+      <div>
+        <div style="display: inline-flex">
+          <p>Personnages : </p>
+          <p>&nbsp; {{listePers(personnages)}}</p>
+        </div>
+      </div>
         <p>Durée : {{film.duree}} minutes</p>
-        <p>Catégories : {{categorie.libelleCat}}</p>
-      <div class="rating">
+        <p>Catégorie : {{categorie.libelle}}</p>
+      <div class="rating" style="display:inline-flex;">
       <ng-rating-bar class="movie-list-item-rate"
                      [value]="getNote(film)"
-                     [ratingCount]="5"
+                     [ratingCount]="10"
                      [disabled]="true" [styles]="styles"
-      ></ng-rating-bar></div>
+      ></ng-rating-bar>
+      <!--<p>{{film.note}} / 10</p>-->
+      </div>
     </div>
   </div>
 </div>

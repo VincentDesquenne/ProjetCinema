@@ -5,7 +5,9 @@ export class Utilisateur {
     public  email : string;
     public  mdp : string;
     public  role : string;
+    public nomUtil: string;
+    public motPasse: string;
 
-    }
+}
 
 
