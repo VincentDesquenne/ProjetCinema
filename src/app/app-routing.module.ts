@@ -10,6 +10,7 @@ import {AjoutActeurComponent} from './component/ajout-acteur/ajout-acteur.compon
 import {AjoutFilmComponent} from './component/ajout-film/ajout-film.component';
 import {AjoutPersonnageComponent} from './component/ajout-personnage/ajout-personnage.component';
 import {AjoutCategorieComponent} from './component/ajout-categorie/ajout-categorie.component';
+import {ViewActeurComponent} from './component/view-acteur/view-acteur.component';
 
 
 
@@ -21,6 +22,7 @@ const routes : Routes =  [
   { path: 'film/:noFilm', component: ViewFilmComponent},
   { path: 'welcome', component: WelcomeComponent },
   { path: 'acteurs', component: ActeurComponent },
+  { path: 'acteur/:noAct', component: ViewActeurComponent},
   { path: 'ajout-acteur', component: AjoutActeurComponent},
   { path: 'ajout-film', component: AjoutFilmComponent},
   { path: 'ajout-perso', component: AjoutPersonnageComponent},

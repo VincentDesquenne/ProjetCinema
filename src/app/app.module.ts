@@ -27,6 +27,7 @@ import {ConnexionService} from './services/connexion.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { ViewActeurComponent } from './component/view-acteur/view-acteur.component';
 
 
 
@@ -44,6 +45,7 @@ import {MatInputModule} from '@angular/material/input';
     AjoutFilmComponent,
     AjoutPersonnageComponent,
     AjoutCategorieComponent,
+    ViewActeurComponent,
   ],
   imports: [
     BrowserModule,

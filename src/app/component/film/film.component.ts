@@ -3,6 +3,7 @@ import {FilmService} from '../../services/film.service';
 import {Film} from '../../models/film';
 import {DOCUMENT} from '@angular/common';
 import {Router} from '@angular/router';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-film',
@@ -18,7 +19,7 @@ export class FilmComponent implements OnInit {
   movieList: any;
 
 
-  constructor(private filmService: FilmService, private routeur: Router) {
+  constructor(private filmService: FilmService, private routeur: Router, private domSanitizer: DomSanitizer) {
     this.transf = "translateX(0)";
     this.nbClics = 0;
   }
@@ -44,6 +45,12 @@ export class FilmComponent implements OnInit {
     } else {
       return description;
     }
+  }
+
+  buildImg(film: Film) {
+    let res = 'data:image/png;base64, ' + film.image;
+    let base64img = this.domSanitizer.bypassSecurityTrustUrl(res);
+    return base64img;
   }
 
   getNote(film) : void {

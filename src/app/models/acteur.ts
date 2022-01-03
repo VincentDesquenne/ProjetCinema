@@ -4,5 +4,5 @@ export interface Acteur {
   prenom?: string;
   naissance?: Date;
   deces?: Date;
-  photo?: any;
+  image?: any;
 }

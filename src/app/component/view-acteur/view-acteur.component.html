@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-sm-4">
+      <img *ngIf="acteur.image" [src]="buildImg(acteur)" alt="test">
+      <img *ngIf="!acteur.image" src="../../../assets/img/default-user.jpg">
+    </div>
+    <div class="col-lg-6 col-sm-8">
+      <div class="titre-date">
+        <div>
+          <h1>{{acteur.prenom}} {{acteur.nom}}</h1>
+        </div>
+      </div>
+      <p>Né le {{acteur.naissance | date:"dd/MM/yyyy"}}</p>
+      <p *ngIf="acteur.deces">Mort le {{acteur.deces | date:"dd/MM/yyyy"}}</p>
+      <div>
+        <p>A joué dans :</p>
+        <p>{{listFilms()}}</p>
+      </div>
+    </div>
+  </div>
+</div>

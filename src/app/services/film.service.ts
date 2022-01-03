@@ -34,6 +34,13 @@ export class FilmService {
 
   }
 
+  getFilmsActeur(id: number): Observable<any> {
+
+    this.filmUrl = ENDPOINT + 'film/getFilmsByActeur/' + id;
+    return this.httpFilm.get(this.filmUrl, {headers: this.mesHeaders});
+
+  }
+
 // Modification d'un film
 
 // On recherche le film

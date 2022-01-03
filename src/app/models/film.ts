@@ -12,4 +12,5 @@ export interface Film {
   noRea?: number;
   codeCat?: string;
   note?: string;
+  image?: string;
 }
