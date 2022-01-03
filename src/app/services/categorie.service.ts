@@ -4,6 +4,8 @@ import {Observable} from 'rxjs';
 import {Categorie} from '../models/categorie';
 import {HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {Acteur} from '../models/acteur';
+import {END} from '@angular/cdk/keycodes';
 
 
 const ENDPOINT = environment.endpoint;
@@ -49,7 +51,18 @@ export class CategorieService {
 
     this.categorieUrl = ENDPOINT + 'categorie/getUneCategorieByLibelle/' + libelle;
     return this.httpCategorie.get<Categorie>(this.categorieUrl, {headers: this.mesHeaders});
+  }
 
+  addCategorie(unCategorie: Categorie): Observable<any>{
+    this.categorieUrl = ENDPOINT + '';
+    let httpHeaders = new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Cache-Control': 'no-cache'
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpCategorie.post<Categorie>(this.categorieUrl, JSON.stringify(unCategorie), options);
   }
 
 

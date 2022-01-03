@@ -1,42 +1,61 @@
 <app-navbar></app-navbar>
-
 <div class="testbox">
-  <form action="/">
+  <form [formGroup]="ajoutFilmForm" (ngSubmit)="ajoutFilm()">
     <h3>Ajout d'un film</h3>
     <div class="colums">
       <div class="item">
-        <label>Titre</label>
-        <input placeholder="Inception" id="titre" type="text"/>
+        <mat-form-field>
+          <label>Titre</label>
+          <input matInput placeholder="Inception" id="titre" type="text" [formControl]="titreControl"/>
+        </mat-form-field>
       </div>
       <div class="item">
-        <label>Durée en min</label>
-        <input placeholder="180" id="duree" type="text"/>
+        <mat-form-field>
+          <label>Durée en min</label>
+          <input matInput placeholder="180" id="duree" type="float" [formControl]="dureeControl"/>
+        </mat-form-field>
       </div>
       <div class="item">
-        <label>Date de sortie</label>
-        <input placeholder="jj-mm-aaaa" id="date_sortie" type="text"/>
+        <mat-form-field>
+          <label>Date de sortie</label>
+          <input matInput placeholder="jj-mm-aaaa" id="date_sortie" type="date" [formControl]="dateSortieControl"/>
+        </mat-form-field>
       </div>
       <div class="item">
-        <label>Budget</label>
-        <input placeholder="100000" id="budget" type="float"/>
+        <mat-form-field>
+          <label>Budget</label>
+          <input matInput placeholder="100000" id="budget" type="float" [formControl]="budgetControl"/>
+        </mat-form-field>
       </div>
       <div class="item">
-        <label>Recette</label>
-        <input placeholder="985 000" id="recette" type="float">
+        <mat-form-field>
+          <label>Recette</label>
+          <input matInput placeholder="985 000" id="recette" type="float" [formControl]="recetteControl"/>
+        </mat-form-field>
       </div>
       <div class="item">
-        <label>Note sur 5</label>
-        <input placeholder="3,5" id="note" type="text"/>
+        <mat-form-field>
+          <label>Note sur 5</label>
+          <input matInput placeholder="3,5" id="note" type="float" [formControl]="noteControl"/>
+        </mat-form-field>
       </div>
     </div>
     <div class="item">
-      <label>Catégorie</label>
-      <select id="categorie" style="width:425px; height: 30px">
-        <option value="1">Action</option>
-        <option value="2">Comédie</option>
-        <option value="3">Western</option>
-        <option value="4">Policier</option>
-      </select>
+      <mat-form-field>
+        <label>Catégorie</label>
+        <select matInput id="categorie" style="width:425px; height: 30px" [formControl]="categControl">
+          <option value="1">Action</option>
+          <option value="2">Comédie</option>
+          <option value="3">Western</option>
+          <option value="4">Policier</option>
+        </select>
+      </mat-form-field>
+    </div>
+    <div class="item">
+      <label for="imgFilm">Importer l'image du film:</label>
+      <input type="file"
+             id="imgFilm" name="imgFilm"
+             accept="image/png, image/jpeg" [formControl]="imgControl">
     </div>
     <div class="btn-block">
       <button type="submit" href="/">Ajouter</button>

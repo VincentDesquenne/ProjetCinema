@@ -33,9 +33,10 @@ textarea {
   padding: 20px;
 }
 form {
+  overflow: auto;
   height: 725px;
   width: 500px;
-  background-color: rgba(255,255,255,0.13);
+  background-color: #8c8c8c;
   position: absolute;
   transform: translate(-50%,-50%);
   top: 50%;

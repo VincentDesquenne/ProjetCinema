@@ -1,18 +1,38 @@
 <app-navbar></app-navbar>
-<form>
+<form [formGroup]="ajoutActeurForm" (ngSubmit)="ajoutActeur()">
   <h3>Ajout d'un acteur</h3>
 
-  <label>Prénom</label>
-  <input type="text" placeholder="Prénom de l'acteur" id="prenom">
+  <mat-form-field>
+    <label>Prénom</label>
+    <input matInput type="text" id="prenom" [formControl]="prenomControl"/>
+  </mat-form-field>
 
-  <label>Nom</label>
-  <input type="text" placeholder="Nom de l'acteur" id="nom">
+  <mat-form-field>
+    <label>Nom</label>
+    <input matInput type="text" id="nom" [formControl]="nomControl"/>
+  </mat-form-field>
 
-  <label>Date de naissance</label>
-  <input type="text" placeholder="jj-mm-aaaa" id="date_naissance">
+  <mat-form-field>
+    <label>Date de naissance</label>
+    <input matInput type="date" id="date_naissance" [formControl]="naissanceControl"/>
+  </mat-form-field>
 
-  <label>Date de décès</label>
-  <input type="text" placeholder="jj-mm-aaaa" id="date_deces">
+  <mat-form-field>
+    <label>Date de décès</label>
+    <input matInput type="date" id="date_deces" [formControl]="decesControl"/>
+  </mat-form-field>
 
-  <button href="#">Ajouter</button>
+  <mat-form-field>
+    <label>Dans le film:</label>
+    <input matInput type="text" id="film" [formControl]="filmControl"/>
+  </mat-form-field>
+
+  <div class="item">
+    <label for="imgActeur">Importer l'image du acteur:</label>
+    <input type="file"
+           id="imgActeur" name="imgActeur"
+           accept="image/png, image/jpeg" [formControl]="imgControl">
+  </div>
+
+  <button type="submit" href="/">Ajouter</button>
 </form>

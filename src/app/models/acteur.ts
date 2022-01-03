@@ -1,4 +1,4 @@
-export interface Acteur {
+export class Acteur {
   id?: number;
   nom?: string;
   prenom?: string;

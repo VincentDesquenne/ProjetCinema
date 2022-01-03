@@ -1,7 +1,7 @@
 import {Categorie} from './categorie';
 import {Realisateur} from './realisateur';
 
-export interface Film {
+export class Film {
   id?: number;
   titre?: string;
   description?: string;

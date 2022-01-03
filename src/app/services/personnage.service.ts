@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Personnage} from '../models/personnage';
 import {HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {Acteur} from '../models/acteur';
 
 
 const ENDPOINT = environment.endpoint;
@@ -11,7 +12,6 @@ const ENDPOINT = environment.endpoint;
 
 @Injectable()
 export class PersonnageService {
-
 
   private personnageUrl: string;
   private mesHeaders: HttpHeaders;
@@ -64,6 +64,20 @@ export class PersonnageService {
     this.personnageUrl = ENDPOINT + 'personnage/modification';
 
     return this.httpPersonnage.post(this.personnageUrl, JSON.stringify(unC), {headers: this.mesHeaders});
+  }
+
+
+// On ajoute un personnage
+  addPersonnage(unPerso: Personnage): Observable<any>{
+    this.personnageUrl = ENDPOINT + 'personnage/ajout';
+    let httpHeaders = new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Cache-Control': 'no-cache'
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpPersonnage.post<Personnage>(this.personnageUrl, JSON.stringify(unPerso), options);
   }
 
 

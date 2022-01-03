@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Acteur} from '../models/acteur';
 import {HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {Film} from '../models/film';
 
 
 const ENDPOINT = environment.endpoint;
@@ -61,6 +62,19 @@ export class ActeurService {
     this.acteurUrl = ENDPOINT + 'acteur/modification';
 
     return this.httpActeur.post(this.acteurUrl, JSON.stringify(unC), {headers: this.mesHeaders});
+  }
+
+// On ajoute un acteur
+  addActeur(unActeur: Acteur): Observable<any>{
+    this.acteurUrl = ENDPOINT + 'acteur/ajout';
+    let httpHeaders = new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Cache-Control': 'no-cache'
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpActeur.post<Acteur>(this.acteurUrl, JSON.stringify(unActeur), options);
   }
 
 

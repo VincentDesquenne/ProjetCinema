@@ -22,15 +22,15 @@ export class LoginComponent implements OnInit {
 
   constructor(private unCS: ConnexionService, private router: Router) { }
 
-  nomControl: FormControl = new FormControl("", Validators.required);
-  prenomControl: FormControl = new FormControl("", Validators.required);
-  mdpControl: FormControl = new FormControl("", Validators.required);
-  emailControl: FormControl = new FormControl("", [Validators.required, Validators.email]);
-  nomUtilControl: FormControl = new FormControl("", Validators.required);
-  motPasseControl: FormControl = new FormControl("", Validators.required);
+  nomControl: FormControl = new FormControl('', Validators.required);
+  prenomControl: FormControl = new FormControl('', Validators.required);
+  mdpControl: FormControl = new FormControl('', Validators.required);
+  emailControl: FormControl = new FormControl('', [Validators.required, Validators.email]);
+  nomUtilControl: FormControl = new FormControl('', Validators.required);
+  motPasseControl: FormControl = new FormControl('', Validators.required);
 
   ngOnInit(): void {
-    this.containerStyle = "container";
+    this.containerStyle = 'container';
     this.loginForm = new FormGroup({
       nom: this.nomControl,
       prenom: this.prenomControl,

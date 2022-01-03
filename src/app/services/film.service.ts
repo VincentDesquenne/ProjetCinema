@@ -27,16 +27,16 @@ export class FilmService {
       .set('Authorization', 'Bearer ' + token);
   }
 
-  getFilmsListe(): Observable<any> {
+  getFilmsActeur(id: number): Observable<any> {
 
-    this.filmUrl = ENDPOINT + 'film/getFilms';
+    this.filmUrl = ENDPOINT + 'film/getFilmsByActeur/' + id;
     return this.httpFilm.get(this.filmUrl, {headers: this.mesHeaders});
 
   }
 
-  getFilmsActeur(id: number): Observable<any> {
+  getFilmsListe(): Observable<any> {
 
-    this.filmUrl = ENDPOINT + 'film/getFilmsByActeur/' + id;
+    this.filmUrl = ENDPOINT + 'film/getFilms';
     return this.httpFilm.get(this.filmUrl, {headers: this.mesHeaders});
 
   }

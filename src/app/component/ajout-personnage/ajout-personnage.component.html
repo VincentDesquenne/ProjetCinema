@@ -1,16 +1,32 @@
 <app-navbar></app-navbar>
-<form>
+<form [formGroup]="ajoutPersoForm" (ngSubmit)="ajoutPerso()">
   <h3>Ajout d'un personnage</h3>
 
   <label>Film</label>
-  <select id="select_film" style="width:425px; height: 30px">
+  <select matInput id="select_film" style="width:425px; height: 30px" [formControl]="filmControl">
     <option value="1">Demon Slayer</option>
     <option value="2">Harry Potter</option>
   </select>
 
-
   <label>Personnage</label>
-  <input type="text" placeholder="Léonardo DiCaprio" id="nom">
+  <input matInput type="text" id="nom" [formControl]="persoControl"/>
 
-  <button href="#">Ajouter</button>
+  <mat-form-field>
+    <label>Acteur</label>
+    <select matInput id="acteur" style="width:425px; height: 30px" [formControl]="acteurControl">
+      <option value="1">Leo Dicaprio</option>
+      <option value="2">Quentin Mang</option>
+      <option value="3">Fabien Goubin</option>
+      <option value="4">Vincent Desquenne</option>
+    </select>
+  </mat-form-field>
+
+  <div class="item">
+    <label for="imgPerso">Importer l'image du acteur:</label>
+    <input type="file"
+           id="imgPerso" name="imgPerso"
+           accept="image/png, image/jpeg" [formControl]="imgControl">
+  </div>
+
+  <button type="submit" href="/">Ajouter</button>
 </form>

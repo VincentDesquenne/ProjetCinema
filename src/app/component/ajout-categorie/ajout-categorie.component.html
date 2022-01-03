@@ -1,9 +1,11 @@
 <app-navbar></app-navbar>
-<form>
+<form [formGroup]="ajoutCategoForm" (ngSubmit)="ajoutCatego()">
   <h3>Ajout d'une catégorie</h3>
 
   <label>Type</label>
-  <input type="text" placeholder="Comédie" id="prenom">
+  <mat-form-field>
+    <input type="text" placeholder="Comédie" id="prenom" [formControl]="categoControl"/>
+  </mat-form-field>
 
-  <button href="#">Ajouter</button>
+  <button type="submit" href="/">Ajouter</button>
 </form>
