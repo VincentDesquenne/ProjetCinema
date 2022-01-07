@@ -35,10 +35,12 @@ export class AjoutCategorieComponent implements OnInit {
     unCatego.libelle = this.categoControl.value;
     this.unCS.addCategorie(unCatego).subscribe(
       reponse => {
-        alert('Ajout Film réussi');
+        alert('Ajout Categorie réussi');
+        console.log(reponse);
       },
       err => {
-        alert('Erreur dans ajout du film');
+        alert('Erreur dans ajout du Categorie');
+        console.log(err);
       }
     );
   }

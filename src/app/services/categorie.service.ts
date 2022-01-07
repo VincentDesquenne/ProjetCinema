@@ -6,6 +6,7 @@ import {HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {Acteur} from '../models/acteur';
 import {END} from '@angular/cdk/keycodes';
+import {Utilisateur} from '../models/utilisateur';
 
 
 const ENDPOINT = environment.endpoint;
@@ -54,7 +55,8 @@ export class CategorieService {
   }
 
   addCategorie(unCategorie: Categorie): Observable<any>{
-    this.categorieUrl = ENDPOINT + '';
+
+    this.categorieUrl = ENDPOINT + 'categorie/ajout';
     let httpHeaders = new HttpHeaders({
       'Content-Type' : 'application/json',
       'Cache-Control': 'no-cache'
@@ -62,6 +64,8 @@ export class CategorieService {
     let options = {
       headers: httpHeaders
     };
+
+    console.log(httpHeaders);
     return this.httpCategorie.post<Categorie>(this.categorieUrl, JSON.stringify(unCategorie), options);
   }
 

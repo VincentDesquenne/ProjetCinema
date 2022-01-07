@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Film} from '../models/film';
 import {HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+import {Acteur} from '../models/acteur';
 
 
 const ENDPOINT = environment.endpoint;
@@ -25,6 +26,18 @@ export class FilmService {
       .set('Cache-Control', 'no-cache')
       .set('Access-Control-Allow-Origin', '*')
       .set('Authorization', 'Bearer ' + token);
+  }
+
+  addFilm(unFilm: Film): Observable<any>{
+    this.filmUrl = ENDPOINT + 'film/ajout';
+    let httpHeaders = new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Cache-Control': 'no-cache'
+    });
+    let options = {
+      headers: httpHeaders
+    };
+    return this.httpFilm.post<Film>(this.filmUrl, JSON.stringify(unFilm), options);
   }
 
   getFilmsActeur(id: number): Observable<any> {

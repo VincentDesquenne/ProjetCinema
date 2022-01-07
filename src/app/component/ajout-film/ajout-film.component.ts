@@ -56,9 +56,11 @@ export class AjoutFilmComponent implements OnInit {
     this.unFS.addFilm(unFilm).subscribe(
       reponse => {
         alert('Ajout Film réussi');
+        console.log('Réussi');
       },
       err => {
         alert('Erreur dans ajout du film');
+        console.log('Echec');
       }
     );
   }

@@ -61,15 +61,15 @@ export class LoginComponent implements OnInit {
     unUt.nomUtil = this.nomUtilControl.value;
     this.unCS.getLogin(unUt).subscribe(
       reponse  => {
-        window.localStorage.setItem("user", reponse.email);
-        window.localStorage.setItem("role", reponse.role);
+        window.localStorage.setItem('user', reponse.email);
+        window.localStorage.setItem('role', reponse.role);
 
         this.router.navigate(['/welcome']);
 
       },
       err => {
         this.errorMessage = err.error.message;
-        console.log("Erreur");
+        console.log('Erreur');
         alert('Erreur d\'appel!' + this.errorMessage);
       }
     );
