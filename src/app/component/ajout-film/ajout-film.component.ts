@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Utilisateur} from '../../models/utilisateur';
 import {Film} from '../../models/film';
 import {FilmService} from '../../services/film.service';
 import {Router} from '@angular/router';
 import {Categorie} from '../../models/categorie';
 import {CategorieService} from '../../services/categorie.service';
-import { MatInputModule } from '@angular/material/input';
 import {RealisateurService} from '../../services/realisateur.service';
 import {Realisateur} from '../../models/realisateur';
 
@@ -74,7 +72,7 @@ export class AjoutFilmComponent implements OnInit {
         console.log('Recupération realisateur impossible');
       }
     );
-}
+  }
 
   ajoutFilm(): void{
 
@@ -91,7 +89,6 @@ export class AjoutFilmComponent implements OnInit {
     unFilm.noRea = this.reaControl.value;
     unFilm.description = this.descriptionControl.value;
     unFilm.codeCat = this.categControl.value;
-
     console.log(unFilm);
     this.unFS.addFilm(unFilm).subscribe(
       reponse => {
@@ -107,9 +104,18 @@ export class AjoutFilmComponent implements OnInit {
 
   filetoBase64(event) {
     const file = event.target.files[0];
+    const type = file.type;
     const reader = new FileReader();
+    console.log(reader);
     reader.readAsDataURL(file);
     reader.onload = () => {
+/*      if( type == 'image/jpeg'){
+        this.dataImage = reader.result.slice(23);
+        console.log(reader.result.slice(23));
+      }else{
+        this.dataImage = reader.result.slice(22);
+        console.log(reader.result.slice(22));
+      }*/
       this.dataImage = reader.result;
     };
   }

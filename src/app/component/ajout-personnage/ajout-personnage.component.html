@@ -2,26 +2,32 @@
 <form [formGroup]="ajoutPersoForm" (ngSubmit)="ajoutPerso()">
   <h3>Ajout d'un personnage</h3>
 
-  <label>Personnage</label>
-  <input matInput type="text" id="nom" [formControl]="persoControl"/>
+  <div class="item">
+    <label>Personnage *</label>
+    <input matInput type="text" id="nom" [formControl]="persoControl" required="required"/>
+  </div>
 
-  <mat-form-field>
-    <mat-label>Film</mat-label>
-    <mat-select matInput id="film" style="width:425px; height: 30px" [formControl]="filmControl">
-      <mat-option *ngFor="let film of filmTable" [value]="film.id">
-        {{film.titre}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div class="colums">
+    <div class="item">
+      <label>Film</label>
+      <select matInput id="film" type="text" [formControl]="filmControl" required="required">
+        <option value=""> Choisir un film </option>
+        <option *ngFor="let film of filmTable" [value]="film.id">
+          {{film.titre}}
+        </option>
+      </select>
+    </div>
 
-  <mat-form-field>
-    <mat-label>Acteur</mat-label>
-    <mat-select matInput id="acteur" style="width:425px; height: 30px" [formControl]="acteurControl">
-      <mat-option *ngFor="let acteur of acteurTable" [value]="acteur.id">
-        {{acteur.nom}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <div class="item">
+      <label>Acteur</label>
+      <select matInput id="acteur" type="text" [formControl]="acteurControl" required="required">
+        <option value=""> Choisir un acteur </option>
+        <option *ngFor="let acteur of acteurTable" [value]="acteur.id">
+          {{acteur.nom}}
+        </option>
+      </select>
+    </div>
+  </div>
 
   <button type="submit" href="/">Ajouter</button>
 </form>

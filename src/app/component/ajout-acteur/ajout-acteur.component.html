@@ -2,36 +2,52 @@
 <form [formGroup]="ajoutActeurForm" (ngSubmit)="ajoutActeur()">
   <h3>Ajout d'un acteur</h3>
 
-  <mat-form-field>
-    <label>Prénom</label>
-    <input matInput type="text" id="prenom" [formControl]="prenomControl"/>
-  </mat-form-field>
+  <div class="colums">
+    <div class="item">
+      <mat-form-field>
+        <label>Prénom *</label>
+        <input matInput type="text" id="prenom" [formControl]="prenomControl" required="required"/>
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <label>Nom</label>
-    <input matInput type="text" id="nom" [formControl]="nomControl"/>
-  </mat-form-field>
+    <div class="item">
+      <mat-form-field>
+        <label>Nom *</label>
+        <input matInput type="text" id="nom" [formControl]="nomControl" required="required"/>
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <label>Date de naissance</label>
-    <input matInput type="date" id="date_naissance" [formControl]="naissanceControl"/>
-  </mat-form-field>
+    <div class="item">
+      <mat-form-field>
+        <label>Date de naissance</label>
+        <input matInput type="date" id="date_naissance" [formControl]="naissanceControl"/>
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <label>Date de décès</label>
-    <input matInput type="date" id="date_deces" [formControl]="decesControl"/>
-  </mat-form-field>
+    <div class="item">
+      <mat-form-field>
+        <label>Date de décès</label>
+        <input matInput type="date" id="date_deces" [formControl]="decesControl"/>
+      </mat-form-field>
+    </div>
 
-  <mat-form-field>
-    <label>Dans le film:</label>
-    <input matInput type="text" id="film" [formControl]="filmControl"/>
-  </mat-form-field>
+    <div class="item">
+      <label>Film</label>
+      <br/>
+      <select matInput id="film" type="text" [formControl]="filmControl" required="required">
+        <option value=""> Choisir un film </option>
+        <option *ngFor="let film of filmTable" [value]="film.id">
+          {{film.titre}}
+        </option>
+      </select>
+    </div>
 
-  <div class="item">
-    <label for="imgActeur">Image de l'acteur (taille max: 2 Mo)</label>
-    <input type="file"
-           id="imgActeur" name="imgActeur"
-           accept="image/png, image/jpeg" (change)="filetoBase64($event)" [formControl]="imgControl">
+    <div class="item">
+      <label for="imgActeur">Image acteur (max: 2 Mo)</label>
+      <input type="file"
+             id="imgActeur" name="imgActeur"
+             accept="image/png, image/jpeg" (change)="filetoBase64($event)" [formControl]="imgControl">
+    </div>
   </div>
 
   <button type="submit" href="/">Ajouter</button>

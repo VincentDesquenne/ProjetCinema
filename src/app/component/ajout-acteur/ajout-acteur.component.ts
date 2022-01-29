@@ -6,6 +6,7 @@ import {ActeurService} from '../../services/acteur.service';
 import {Film} from '../../models/film';
 import {Acteur} from '../../models/acteur';
 import {DomSanitizer} from '@angular/platform-browser';
+import {Realisateur} from '../../models/realisateur';
 
 @Component({
   selector: 'app-ajout-acteur',
@@ -17,8 +18,9 @@ export class AjoutActeurComponent implements OnInit {
   containerStyle: any;
   ajoutActeurForm: FormGroup;
   dataImage: string |ArrayBuffer;
+  filmTable: Film[];
 
-  constructor(private unAS: ActeurService, private router: Router) { }
+  constructor(private unAS: ActeurService, private unFS: FilmService, private router: Router) { }
 
   prenomControl: FormControl = new FormControl('', Validators.required);
   nomControl: FormControl = new FormControl('', Validators.required);
@@ -38,6 +40,7 @@ export class AjoutActeurComponent implements OnInit {
         titre: this.filmControl,
       }
     );
+    this.listerFilm();
   }
 
   ajoutActeur(): void{
@@ -68,5 +71,16 @@ export class AjoutActeurComponent implements OnInit {
     reader.onload = () => {
       this.dataImage = reader.result;
     };
+  }
+  listerFilm(): void{
+    this.unFS.getFilmsListe().subscribe(
+      filmResponse => {
+        this.filmTable = filmResponse;
+        console.log('Réussi film');
+      },
+      error => {
+        console.log('Recupération film impossible');
+      }
+    );
   }
 }

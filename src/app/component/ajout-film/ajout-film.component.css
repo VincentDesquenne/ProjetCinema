@@ -1,4 +1,4 @@
-div, form, input, select, textarea, p, mat-select {
+div, form, input, select, textarea, p {
   padding: 0;
   margin: 0;
   outline: none;
@@ -78,7 +78,7 @@ mat-option{
   color: white;
 }
 
-input, select, textarea, mat-select {
+input, select, textarea {
   margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;

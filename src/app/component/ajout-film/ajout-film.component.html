@@ -48,26 +48,23 @@
 
     <div class="colums">
       <div class="item">
-          <mat-form-field>
-            <mat-label>Réalisateur</mat-label>
-            <mat-select matInput id="noRea" type="text" [formControl]="reaControl" required="required">
-              <mat-option
-                *ngFor="let realisateur of realisateurTable" [value]="realisateur.noRea">
-                {{realisateur.nom}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+        <label>Réalisateur</label>
+        <select matInput id="noRea" type="text" [formControl]="reaControl" required="required">
+          <option value=""> Choisir un réalisateur </option>
+          <option *ngFor="let realisateur of realisateurTable" [value]="realisateur.noRea">
+            {{realisateur.nom}}
+          </option>
+        </select>
       </div>
 
       <div class="item">
-        <mat-form-field>
-          <mat-label>Categorie</mat-label>
-          <mat-select matInput id="categorie" type="text" [formControl]="categControl" required="required">
-            <mat-option
-              *ngFor="let categorie of categorieTable" [value]="categorie.id">{{categorie.libelle}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+        <label>Categorie</label>
+        <select matInput id="categorie" type="text" [formControl]="categControl" required="required">
+          <option value=""> Choisir une catégorie </option>
+          <option *ngFor="let categorie of categorieTable" [value]="categorie.id">
+            {{categorie.libelle}}
+          </option>
+        </select>
       </div>
 
       <div class="description">
@@ -78,7 +75,7 @@
       </div>
 
       <div class="item">
-        <label for="imgFilm">Importer l'image du film *</label>
+        <label for="imgFilm">Image du film (2 Mo)*</label>
         <input type="file"
                id="imgFilm" name="imgFilm"
                accept="image/png, image/jpeg" (change)="filetoBase64($event)" [formControl]="imgControl">
