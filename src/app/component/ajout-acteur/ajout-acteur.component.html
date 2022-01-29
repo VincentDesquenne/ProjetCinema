@@ -28,10 +28,10 @@
   </mat-form-field>
 
   <div class="item">
-    <label for="imgActeur">Importer l'image du acteur:</label>
+    <label for="imgActeur">Image de l'acteur (taille max: 2 Mo)</label>
     <input type="file"
            id="imgActeur" name="imgActeur"
-           accept="image/png, image/jpeg" [formControl]="imgControl">
+           accept="image/png, image/jpeg" (change)="filetoBase64($event)" [formControl]="imgControl">
   </div>
 
   <button type="submit" href="/">Ajouter</button>

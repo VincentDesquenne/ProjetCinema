@@ -2,31 +2,26 @@
 <form [formGroup]="ajoutPersoForm" (ngSubmit)="ajoutPerso()">
   <h3>Ajout d'un personnage</h3>
 
-  <label>Film</label>
-  <select matInput id="select_film" style="width:425px; height: 30px" [formControl]="filmControl">
-    <option value="1">Demon Slayer</option>
-    <option value="2">Harry Potter</option>
-  </select>
-
   <label>Personnage</label>
   <input matInput type="text" id="nom" [formControl]="persoControl"/>
 
   <mat-form-field>
-    <label>Acteur</label>
-    <select matInput id="acteur" style="width:425px; height: 30px" [formControl]="acteurControl">
-      <option value="1">Leo Dicaprio</option>
-      <option value="2">Quentin Mang</option>
-      <option value="3">Fabien Goubin</option>
-      <option value="4">Vincent Desquenne</option>
-    </select>
+    <mat-label>Film</mat-label>
+    <mat-select matInput id="film" style="width:425px; height: 30px" [formControl]="filmControl">
+      <mat-option *ngFor="let film of filmTable" [value]="film.id">
+        {{film.titre}}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
 
-  <div class="item">
-    <label for="imgPerso">Importer l'image du acteur:</label>
-    <input type="file"
-           id="imgPerso" name="imgPerso"
-           accept="image/png, image/jpeg" [formControl]="imgControl">
-  </div>
+  <mat-form-field>
+    <mat-label>Acteur</mat-label>
+    <mat-select matInput id="acteur" style="width:425px; height: 30px" [formControl]="acteurControl">
+      <mat-option *ngFor="let acteur of acteurTable" [value]="acteur.id">
+        {{acteur.nom}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
   <button type="submit" href="/">Ajouter</button>
 </form>

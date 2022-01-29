@@ -4,6 +4,12 @@ import {Utilisateur} from '../../models/utilisateur';
 import {Film} from '../../models/film';
 import {FilmService} from '../../services/film.service';
 import {Router} from '@angular/router';
+import {Categorie} from '../../models/categorie';
+import {CategorieService} from '../../services/categorie.service';
+import { MatInputModule } from '@angular/material/input';
+import {RealisateurService} from '../../services/realisateur.service';
+import {Realisateur} from '../../models/realisateur';
+
 
 @Component({
   selector: 'app-ajout-film',
@@ -14,8 +20,11 @@ export class AjoutFilmComponent implements OnInit {
 
   containerStyle: any;
   ajoutFilmForm: FormGroup;
+  dataImage: string |ArrayBuffer;
+  categorieTable: Categorie[];
+  realisateurTable: Realisateur[];
 
-  constructor(private unFS: FilmService, private router: Router) { }
+  constructor(private unFS: FilmService, private unRS: RealisateurService, private unCS: CategorieService, private router: Router) { }
 
   titreControl: FormControl = new FormControl('', Validators.required);
   dureeControl: FormControl = new FormControl('', Validators.required);
@@ -25,6 +34,8 @@ export class AjoutFilmComponent implements OnInit {
   noteControl: FormControl = new FormControl('', Validators.required);
   categControl: FormControl = new FormControl('', Validators.required);
   imgControl: FormControl = new FormControl('', Validators.required);
+  reaControl: FormControl = new FormControl('', Validators.required);
+  descriptionControl: FormControl = new FormControl('', Validators.required);
 
 
   ngOnInit(): void {
@@ -38,8 +49,32 @@ export class AjoutFilmComponent implements OnInit {
       note: this.noteControl,
       categ: this.categControl,
       img: this.imgControl,
+      rea: this.reaControl,
+      description: this.descriptionControl,
     });
+    this.listerRealisateur();
+    this.unCS.getCategoriesListe().subscribe(
+      categorieResponse => {
+        this.categorieTable = categorieResponse;
+        console.log('Réussi');
+      },
+      error => {
+        console.log('Recupération categorie impossible');
+      }
+    );
   }
+
+  listerRealisateur(): void{
+    this.unRS.getRealisateursListe().subscribe(
+      realisateurResponse => {
+        this.realisateurTable = realisateurResponse;
+        console.log('Réussi realisateur');
+      },
+      error => {
+        console.log('Recupération realisateur impossible');
+      }
+    );
+}
 
   ajoutFilm(): void{
 
@@ -50,9 +85,14 @@ export class AjoutFilmComponent implements OnInit {
     unFilm.duree = this.dureeControl.value;
     unFilm.dateSortie = this.dateSortieControl.value;
     unFilm.budget = this.budgetControl.value;
-    unFilm.montantRecette = this.recetteControl.value;
+    unFilm.recette = this.recetteControl.value;
     unFilm.note = this.noteControl.value;
+    unFilm.image = this.dataImage;
+    unFilm.noRea = this.reaControl.value;
+    unFilm.description = this.descriptionControl.value;
+    unFilm.codeCat = this.categControl.value;
 
+    console.log(unFilm);
     this.unFS.addFilm(unFilm).subscribe(
       reponse => {
         alert('Ajout Film réussi');
@@ -63,5 +103,14 @@ export class AjoutFilmComponent implements OnInit {
         console.log('Echec');
       }
     );
+  }
+
+  filetoBase64(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.dataImage = reader.result;
+    };
   }
 }

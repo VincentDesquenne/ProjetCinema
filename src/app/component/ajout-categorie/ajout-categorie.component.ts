@@ -32,14 +32,15 @@ export class AjoutCategorieComponent implements OnInit {
     let unCatego: Categorie;
 
     unCatego = new Categorie();
+    unCatego.id = this.categoControl.value[0] + this.categoControl.value[1];
     unCatego.libelle = this.categoControl.value;
     this.unCS.addCategorie(unCatego).subscribe(
       reponse => {
-        alert('Ajout Categorie réussi');
+        alert('Catégorie ajoutée');
         console.log(reponse);
       },
       err => {
-        alert('Erreur dans ajout du Categorie');
+        alert('Erreur dans ajout de la categorie');
         console.log(err);
       }
     );

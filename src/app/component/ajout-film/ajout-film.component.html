@@ -5,57 +5,84 @@
     <div class="colums">
       <div class="item">
         <mat-form-field>
-          <label>Titre</label>
-          <input matInput placeholder="Inception" id="titre" type="text" [formControl]="titreControl"/>
+          <label>Titre *</label>
+          <input matInput id="titre" type="text" required="required" [formControl]="titreControl"/>
         </mat-form-field>
       </div>
+
       <div class="item">
         <mat-form-field>
-          <label>Durée en min</label>
-          <input matInput placeholder="180" id="duree" type="float" [formControl]="dureeControl"/>
+          <label>Durée en min *</label>
+          <input matInput id="duree" type="number" [formControl]="dureeControl" required="required"/>
         </mat-form-field>
       </div>
+
       <div class="item">
         <mat-form-field>
-          <label>Date de sortie</label>
-          <input matInput placeholder="jj-mm-aaaa" id="date_sortie" type="date" [formControl]="dateSortieControl"/>
+          <label>Date de sortie *</label>
+          <input matInput id="date_sortie" type="date" [formControl]="dateSortieControl" required="required"/>
         </mat-form-field>
       </div>
+
       <div class="item">
         <mat-form-field>
-          <label>Budget</label>
-          <input matInput placeholder="100000" id="budget" type="float" [formControl]="budgetControl"/>
+          <label>Budget *</label>
+          <input matInput id="budget" type="number" [formControl]="budgetControl" required="required"/>
         </mat-form-field>
       </div>
+
       <div class="item">
         <mat-form-field>
-          <label>Recette</label>
-          <input matInput placeholder="985 000" id="recette" type="float" [formControl]="recetteControl"/>
+          <label>Recette *</label>
+          <input matInput id="recette" type="number" [formControl]="recetteControl" required="required"/>
         </mat-form-field>
       </div>
+
       <div class="item">
         <mat-form-field>
-          <label>Note sur 5</label>
-          <input matInput placeholder="3,5" id="note" type="float" [formControl]="noteControl"/>
+          <label>Note * /5</label>
+          <input matInput id="note" type="float" [formControl]="noteControl" required="required"/>
         </mat-form-field>
       </div>
     </div>
-    <div class="item">
-      <mat-form-field>
-        <label>Catégorie</label>
-        <select matInput id="categorie" style="width:425px; height: 30px" [formControl]="categControl">
-          <option value="1">Action</option>
-          <option value="2">Comédie</option>
-          <option value="3">Western</option>
-          <option value="4">Policier</option>
-        </select>
-      </mat-form-field>
-    </div>
-    <div class="item">
-      <label for="imgFilm">Importer l'image du film:</label>
-      <input type="file"
-             id="imgFilm" name="imgFilm"
-             accept="image/png, image/jpeg" [formControl]="imgControl">
+
+    <div class="colums">
+      <div class="item">
+          <mat-form-field>
+            <mat-label>Réalisateur</mat-label>
+            <mat-select matInput id="noRea" type="text" [formControl]="reaControl" required="required">
+              <mat-option
+                *ngFor="let realisateur of realisateurTable" [value]="realisateur.noRea">
+                {{realisateur.nom}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+      </div>
+
+      <div class="item">
+        <mat-form-field>
+          <mat-label>Categorie</mat-label>
+          <mat-select matInput id="categorie" type="text" [formControl]="categControl" required="required">
+            <mat-option
+              *ngFor="let categorie of categorieTable" [value]="categorie.id">{{categorie.libelle}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="description">
+        <mat-form-field>
+          <label>Description *</label>
+          <input matInput id="description" type="text" [formControl]="descriptionControl" required="required"/>
+        </mat-form-field>
+      </div>
+
+      <div class="item">
+        <label for="imgFilm">Importer l'image du film *</label>
+        <input type="file"
+               id="imgFilm" name="imgFilm"
+               accept="image/png, image/jpeg" (change)="filetoBase64($event)" [formControl]="imgControl">
+      </div>
     </div>
     <div class="btn-block">
       <button type="submit">Ajouter</button>

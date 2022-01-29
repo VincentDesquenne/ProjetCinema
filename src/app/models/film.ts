@@ -7,10 +7,10 @@ export class Film {
   description?: string;
   duree?: number;
   budget?: number;
-  montantRecette?: number;
+  recette?: number;
   dateSortie?: Date;
   noRea?: number;
   codeCat?: string;
-  note?: string;
-  image?: string;
+  note?: number;
+  image?: any;
 }

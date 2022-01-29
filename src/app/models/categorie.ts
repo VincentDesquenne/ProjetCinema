@@ -1,5 +1,5 @@
 export class Categorie {
-  id?: number;
+  id?: string;
   codeCat?: string;
   libelle?: string;
   image?: string;

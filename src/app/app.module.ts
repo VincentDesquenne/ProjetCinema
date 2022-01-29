@@ -28,6 +28,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { ViewActeurComponent } from './component/view-acteur/view-acteur.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -58,6 +59,7 @@ import { ViewActeurComponent } from './component/view-acteur/view-acteur.compone
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
   ],
   providers: [FilmService, ActeurService, PersonnageService, RealisateurService, CategorieService, ConnexionService],
   bootstrap: [AppComponent]

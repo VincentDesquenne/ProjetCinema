@@ -5,6 +5,7 @@ import {Router} from '@angular/router';
 import {ActeurService} from '../../services/acteur.service';
 import {Film} from '../../models/film';
 import {Acteur} from '../../models/acteur';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-ajout-acteur',
@@ -15,6 +16,7 @@ export class AjoutActeurComponent implements OnInit {
 
   containerStyle: any;
   ajoutActeurForm: FormGroup;
+  dataImage: string |ArrayBuffer;
 
   constructor(private unAS: ActeurService, private router: Router) { }
 
@@ -47,7 +49,7 @@ export class AjoutActeurComponent implements OnInit {
     unActeur.nom = this.nomControl.value;
     unActeur.naissance = this.naissanceControl.value;
     unActeur.deces = this.decesControl.value;
-    unActeur.image = this.imgControl.value;
+    unActeur.image = this.dataImage;
 
     this.unAS.addActeur(unActeur).subscribe(
       reponse => {
@@ -57,5 +59,14 @@ export class AjoutActeurComponent implements OnInit {
         alert('Erreur dans ajout du acteur');
       }
     );
+  }
+
+  filetoBase64(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.dataImage = reader.result;
+    };
   }
 }
