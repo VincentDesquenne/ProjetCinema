@@ -1,30 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {Film} from '../../models/film';
-import {FilmService} from '../../services/film.service';
-import {Router} from '@angular/router';
 import {Categorie} from '../../models/categorie';
-import {CategorieService} from '../../services/categorie.service';
-import {RealisateurService} from '../../services/realisateur.service';
 import {Realisateur} from '../../models/realisateur';
-
+import {FilmService} from '../../services/film.service';
+import {RealisateurService} from '../../services/realisateur.service';
+import {CategorieService} from '../../services/categorie.service';
+import {Router} from '@angular/router';
+import {Film} from '../../models/film';
 
 @Component({
-  selector: 'app-ajout-film',
-  templateUrl: './ajout-film.component.html',
-  styleUrls: ['./ajout-film.component.css']
+  selector: 'app-modifier-film',
+  templateUrl: './modifier-film.component.html',
+  styleUrls: ['./modifier-film.component.css']
 })
-export class AjoutFilmComponent implements OnInit {
+export class ModifierFilmComponent implements OnInit {
 
   containerStyle: any;
-  ajoutFilmForm: FormGroup;
+  modifierFilmForm: FormGroup;
   dataImage: string |ArrayBuffer;
   categorieTable: Categorie[];
   realisateurTable: Realisateur[];
+  filmTable: Film[];
 
   constructor(private unFS: FilmService, private unRS: RealisateurService, private unCS: CategorieService, private router: Router) { }
 
   titreControl: FormControl = new FormControl('', Validators.required);
+  idControl: FormControl = new FormControl('', Validators.required);
   dureeControl: FormControl = new FormControl('', Validators.required);
   dateSortieControl: FormControl = new FormControl('', Validators.required);
   budgetControl: FormControl = new FormControl('', Validators.required);
@@ -38,7 +39,7 @@ export class AjoutFilmComponent implements OnInit {
 
   ngOnInit(): void {
     this.containerStyle = 'container';
-    this.ajoutFilmForm = new FormGroup({
+    this.modifierFilmForm = new FormGroup({
       titre: this.titreControl,
       duree: this.dureeControl,
       dateSortie: this.dateSortieControl,
@@ -51,6 +52,7 @@ export class AjoutFilmComponent implements OnInit {
       description: this.descriptionControl,
     });
     this.listerRealisateur();
+    this.listerFilm();
     this.unCS.getCategoriesListe().subscribe(
       categorieResponse => {
         this.categorieTable = categorieResponse;
@@ -74,11 +76,24 @@ export class AjoutFilmComponent implements OnInit {
     );
   }
 
-  ajoutFilm(): void{
+  listerFilm(): void{
+    this.unFS.getFilmsListe().subscribe(
+      filmResponse => {
+        this.filmTable = filmResponse;
+        console.log('Film ok');
+      },
+      error => {
+        console.log('Film no ok ');
+      }
+    );
+  }
+
+  modifierFilm(): void{
 
     let unFilm: Film;
 
     unFilm = new Film();
+    unFilm.id = this.idControl.value;
     unFilm.titre = this.titreControl.value;
     unFilm.duree = this.dureeControl.value;
     unFilm.dateSortie = this.dateSortieControl.value;
@@ -90,13 +105,13 @@ export class AjoutFilmComponent implements OnInit {
     unFilm.description = this.descriptionControl.value;
     unFilm.codeCat = this.categControl.value;
     console.log(unFilm);
-    this.unFS.addFilm(unFilm).subscribe(
+    this.unFS.updateFilm(unFilm).subscribe(
       reponse => {
-        alert('Ajout Film réussi');
+        alert('modifier Film réussi');
         console.log('Réussi');
       },
       err => {
-        alert('Erreur dans ajout du film');
+        alert('Erreur dans la modification du film, vérifiez tous les champs');
         console.log('Echec');
       }
     );
@@ -116,7 +131,6 @@ export class AjoutFilmComponent implements OnInit {
         this.dataImage = reader.result.slice(22);
         console.log(reader.result.slice(22));
       }
-      this.dataImage = reader.result;
     };
   }
 }

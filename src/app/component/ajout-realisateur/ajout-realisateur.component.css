@@ -7,7 +7,7 @@
   top: 50%;
 }
 form{
-  height: 700px;
+  height: 550px;
   width: 500px;
   background-color: #8c8c8c;
   position: absolute;
@@ -65,7 +65,6 @@ button{
   border-radius: 5px;
   cursor: pointer;
 }
-
 .colums {
   display:flex;
   justify-content:space-between;

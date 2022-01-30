@@ -32,17 +32,6 @@
     </div>
 
     <div class="item">
-      <label>Film</label>
-      <br/>
-      <select matInput id="film" type="text" [formControl]="filmControl" required="required">
-        <option value=""> Choisir un film </option>
-        <option *ngFor="let film of filmTable" [value]="film.id">
-          {{film.titre}}
-        </option>
-      </select>
-    </div>
-
-    <div class="item">
       <label for="imgActeur">Image acteur (max: 2 Mo)</label>
       <input type="file"
              id="imgActeur" name="imgActeur"

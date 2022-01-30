@@ -13,6 +13,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkFilms">
             <li><a class="dropdown-item" href="/films">Voir les films</a></li>
             <li *ngIf="admin"><a class="dropdown-item" href="/ajout-film">Ajouter un film</a></li>
+            <li *ngIf="admin"><a class="dropdown-item" href="/modifier-film">Modifier un film</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -22,6 +23,7 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkActeurs">
             <li><a class="dropdown-item" href="/acteurs">Voir les acteurs</a></li>
             <li *ngIf="admin"><a class="dropdown-item" href="/ajout-acteur">Ajouter un acteur</a></li>
+            <li *ngIf="admin"><a class="dropdown-item" href="/modifier-acteur">Modifier un acteur</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown" *ngIf="admin">
@@ -46,6 +48,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkRealisateurs">
             <li><a class="dropdown-item" href="/ajout-realisateur">Ajouter un réalisateur</a></li>
+            <li><a class="dropdown-item" href="/modifier-realisateur">Modifier un réalisateur</a></li>
           </ul>
         </li>
         <li class="nav-item">

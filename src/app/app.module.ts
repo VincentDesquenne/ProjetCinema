@@ -30,6 +30,9 @@ import {MatInputModule} from '@angular/material/input';
 import { ViewActeurComponent } from './component/view-acteur/view-acteur.component';
 import {MatSelectModule} from '@angular/material/select';
 import { AjoutRealisateurComponent } from './component/ajout-realisateur/ajout-realisateur.component';
+import {ModifierActeurComponent} from './component/modifier-acteur/modifier-acteur.component';
+import {ModifierFilmComponent} from './component/modifier-film/modifier-film.component';
+import {ModifierRealisateurComponent} from './component/modifier-realisateur/modifier-realisateur.component';
 
 
 
@@ -49,6 +52,9 @@ import { AjoutRealisateurComponent } from './component/ajout-realisateur/ajout-r
     AjoutCategorieComponent,
     ViewActeurComponent,
     AjoutRealisateurComponent,
+    ModifierActeurComponent,
+    ModifierFilmComponent,
+    ModifierRealisateurComponent
   ],
   imports: [
     BrowserModule,
