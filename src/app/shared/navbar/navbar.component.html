@@ -12,7 +12,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkFilms">
             <li><a class="dropdown-item" href="/films">Voir les films</a></li>
-            <li><a class="dropdown-item" href="/ajout-film">Ajouter un film</a></li>
+            <li *ngIf="admin"><a class="dropdown-item" href="/ajout-film">Ajouter un film</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -21,10 +21,10 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkActeurs">
             <li><a class="dropdown-item" href="/acteurs">Voir les acteurs</a></li>
-            <li><a class="dropdown-item" href="/ajout-acteur">Ajouter un acteur</a></li>
+            <li *ngIf="admin"><a class="dropdown-item" href="/ajout-acteur">Ajouter un acteur</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="admin">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkCategories" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Catégories
           </a>
@@ -32,12 +32,20 @@
             <li><a class="dropdown-item" href="/ajout-catego">Ajouter une catégorie</a></li>
           </ul>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="admin">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkPersos" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Personnages
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkPersos">
             <li><a class="dropdown-item" href="/ajout-perso">Ajouter un personnage</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown" *ngIf="admin">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkRealisateurs" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Réalisateurs
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkRealisateurs">
+            <li><a class="dropdown-item" href="/ajout-realisateur">Ajouter un réalisateur</a></li>
           </ul>
         </li>
         <li class="nav-item">

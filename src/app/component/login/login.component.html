@@ -7,7 +7,8 @@
         <input matInput type="text" placeholder="Nom" [formControl]="nomControl"/>
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="text" placeholder="Prénom" [formControl]="prenomControl"/>
+        <mat-label>Prénom</mat-label>
+        <input matInput type="text" [formControl]="prenomControl"/>
       </mat-form-field>
       <mat-form-field>
         <input matInput type="email" placeholder="Email" [formControl]="emailControl"/>

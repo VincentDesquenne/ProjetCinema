@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+<form [formGroup]="ajoutRealisateurForm" (ngSubmit)="ajoutRealisateur()">
+  <h3>Ajout d'un réalisateur</h3>
+
+  <div class="colums">
+    <div class="item">
+      <mat-form-field>
+        <label>Prénom *</label>
+        <input matInput type="text" id="prenom" [formControl]="prenomControl" required="required"/>
+      </mat-form-field>
+    </div>
+
+    <div class="item">
+      <mat-form-field>
+        <label>Nom *</label>
+        <input matInput type="text" id="nom" [formControl]="nomControl" required="required"/>
+      </mat-form-field>
+    </div>
+
+  </div>
+
+  <button type="submit" href="/">Ajouter</button>
+</form>

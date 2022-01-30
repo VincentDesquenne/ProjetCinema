@@ -4,7 +4,8 @@
   <div class="movie-list-wrapper">
     <div class="movie-list" #movieList [style.transform] = "transf">
       <div class="movie-list-item" *ngFor="let film of mesFilms" (click)="openFilm(film)">
-        <img class="movie-list-item-img" src="../../../assets/img/demon_slayer.jpg" alt="image film">
+        <img *ngIf="film.image" class="movie-list-item-img" [src]="buildImg(film)" alt="image film">
+        <img *ngIf="!film.image" class="movie-list-item-img" src="../../../assets/img/default.jpg" alt="image film">
         <span class="movie-list-item-title">{{film.titre}}</span>
         <p class="movie-list-item-desc">{{longmax(film.description)}}</p>
         <ng-rating-bar class="movie-list-item-rate"

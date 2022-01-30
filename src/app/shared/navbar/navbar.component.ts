@@ -9,11 +9,13 @@ export class NavbarComponent implements OnInit {
 
   connected: boolean;
   cinemaepul: string;
+  admin: boolean;
   constructor() { }
 
   ngOnInit(): void {
     this.connected = window.localStorage.getItem("user").length > 0;
     this.connected ? this.cinemaepul = "/welcome" : this.cinemaepul = "/connexion";
+    this.admin = window.localStorage.getItem("role") == "admin" ? true : false;
   }
 
   deconnexion(): void {

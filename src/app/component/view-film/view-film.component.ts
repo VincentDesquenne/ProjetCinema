@@ -11,6 +11,7 @@ import {Acteur} from '../../models/acteur';
 import {ActeurService} from '../../services/acteur.service';
 import {PersonnageService} from '../../services/personnage.service';
 import {Personnage} from '../../models/personnage';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-view-film',
@@ -32,7 +33,7 @@ export class ViewFilmComponent implements OnInit {
 
 
   constructor(private route: ActivatedRoute, private unRouteur: Router, private filmService: FilmService, private acteurService: ActeurService, private realisateurService: RealisateurService,
-              private categorieService: CategorieService, private personnageService: PersonnageService) { }
+              private categorieService: CategorieService, private personnageService: PersonnageService, private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('noFilm');
@@ -95,6 +96,12 @@ export class ViewFilmComponent implements OnInit {
 
   getNote(film) : void {
     return film.note;
+  }
+
+  buildImg(film: Film) {
+    let res = 'data:image/png;base64, ' + film.image;
+    let base64img = this.domSanitizer.bypassSecurityTrustUrl(res);
+    return base64img;
   }
 
 }

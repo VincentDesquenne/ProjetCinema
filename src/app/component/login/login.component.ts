@@ -81,22 +81,27 @@ export class LoginComponent implements OnInit {
     let unUt: Utilisateur;
 
     unUt = new Utilisateur();
-    unUt.email = this.emailControl.value;
-    unUt.forname = this.nomControl.value;
-    unUt.surname = this.prenomControl.value;
-    unUt.mdp = this.mdpControl.value;
-    this.unCS.inscription(unUt).subscribe(
-      reponse  => {
-        alert('Inscription réussie !!!');
-        this.router.navigate(['/welcome']);
+    if(this.emailControl.value !== "" && this.nomControl.value !== "" && this.mdpControl.value !== ""){
+      unUt.email = this.emailControl.value;
+      unUt.forname = this.nomControl.value;
+      unUt.surname = this.prenomControl.value;
+      unUt.mdp = this.mdpControl.value;
+      this.unCS.inscription(unUt).subscribe(
+        reponse  => {
+          alert('Inscription réussie !!!');
+          this.router.navigate(['/welcome']);
 
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        console.log("Erreur");
-        alert('Erreur d\'appel!' + this.errorMessage);
-      }
-    );
+        },
+        err => {
+          this.errorMessage = err.error.message;
+          console.log("Erreur");
+          alert('Erreur d\'appel!' + this.errorMessage);
+        }
+      );
+    } else {
+      alert('Certains champs ne sont pas complétés');
+    }
+
   }
 
 

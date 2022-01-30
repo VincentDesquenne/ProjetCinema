@@ -2,7 +2,8 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6 col-sm-4">
-        <img src="../../../assets/img/demon_slayer.jpg" alt="test">
+      <img *ngIf="film.image" class="movie-list-item-img" [src]="buildImg(film)" alt="image film">
+      <img *ngIf="!film.image" class="movie-list-item-img" src="../../../assets/img/default.jpg" alt="image film">
     </div>
     <div class="col-lg-6 col-sm-8">
         <div class="titre-date">

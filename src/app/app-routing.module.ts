@@ -11,6 +11,7 @@ import {AjoutFilmComponent} from './component/ajout-film/ajout-film.component';
 import {AjoutPersonnageComponent} from './component/ajout-personnage/ajout-personnage.component';
 import {AjoutCategorieComponent} from './component/ajout-categorie/ajout-categorie.component';
 import {ViewActeurComponent} from './component/view-acteur/view-acteur.component';
+import {AjoutRealisateurComponent} from './component/ajout-realisateur/ajout-realisateur.component';
 
 
 
@@ -27,6 +28,7 @@ const routes : Routes =  [
   { path: 'ajout-film', component: AjoutFilmComponent},
   { path: 'ajout-perso', component: AjoutPersonnageComponent},
   { path: 'ajout-catego', component: AjoutCategorieComponent},
+  { path: 'ajout-realisateur', component: AjoutRealisateurComponent},
 ];
 
 @NgModule({
