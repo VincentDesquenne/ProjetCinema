@@ -22,6 +22,7 @@ export class ViewActeurComponent implements OnInit {
   films: Film[];
   personnages: Personnage[];
   filmPers: Map<Film, Personnage> = new Map<Film, Personnage>();
+  admin: boolean;
 
   constructor(private route: ActivatedRoute, private unRouteur: Router, private filmService: FilmService, private acteurService: ActeurService, private realisateurService: RealisateurService,
               private categorieService: CategorieService, private personnageService: PersonnageService, private domSanitizer: DomSanitizer) {
@@ -29,6 +30,7 @@ export class ViewActeurComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('noAct');
+    this.admin = window.localStorage.getItem("role") == "admin" ? true : false;
     this.findActeur(this.id);
   }
 
@@ -57,6 +59,15 @@ export class ViewActeurComponent implements OnInit {
         );
       }
     );
+  }
+
+  deleteActeur(id: number): void {
+    this.acteurService.deleteActeur(id).subscribe( reponse => {
+        alert("L'acteur a été supprimé")
+        this.unRouteur.navigate(['/acteurs'])
+      }
+    )
+
   }
 
   listFilms() {

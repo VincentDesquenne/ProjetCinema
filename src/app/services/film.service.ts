@@ -72,6 +72,13 @@ export class FilmService {
     return this.httpFilm.post(this.filmUrl, JSON.stringify(unC), {headers: this.mesHeaders});
   }
 
+  // On modifie un film
+  deleteFilm(id: number): Observable<any> {
+    this.filmUrl = ENDPOINT + 'film/delete/' + id ;
+
+    return this.httpFilm.delete<Film>(this.filmUrl, {headers: this.mesHeaders});
+  }
+
 
   private handleError(error: Response | any) {
     let errMsg: string;

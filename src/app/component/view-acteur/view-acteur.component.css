@@ -32,3 +32,9 @@ img {
   margin-top: 45px;
   color:white;
 }
+
+.btn-delete {
+  background-color: #C70039;
+  border-radius: 4px;
+  color:white;
+}

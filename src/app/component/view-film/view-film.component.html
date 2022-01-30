@@ -37,6 +37,9 @@
       ></ng-rating-bar>
       <!--<p>{{film.note}} / 10</p>-->
       </div>
+      <div>
+        <button class="btn-delete" *ngIf="admin" (click)="deleteFilm(film.id)">Supprimer</button>
+      </div>
     </div>
   </div>
 </div>

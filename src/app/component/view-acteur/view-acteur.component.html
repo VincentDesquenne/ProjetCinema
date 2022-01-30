@@ -17,6 +17,9 @@
         <p>A joué dans :</p>
         <p>{{listFilms()}}</p>
       </div>
+      <div>
+        <button class="btn-delete" *ngIf="admin" (click)="deleteActeur(acteur.id)">Supprimer</button>
+      </div>
     </div>
   </div>
 </div>

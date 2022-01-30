@@ -30,13 +30,14 @@ export class ViewFilmComponent implements OnInit {
   desc: string;
   personnages: Personnage[];
   listacteurs : string;
-
+  admin: boolean;
 
   constructor(private route: ActivatedRoute, private unRouteur: Router, private filmService: FilmService, private acteurService: ActeurService, private realisateurService: RealisateurService,
               private categorieService: CategorieService, private personnageService: PersonnageService, private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('noFilm');
+    this.admin = window.localStorage.getItem("role") == "admin" ? true : false;
     this.findFilm(this.id);
   }
 
@@ -64,6 +65,15 @@ export class ViewFilmComponent implements OnInit {
         //this.findCategorie(film.codeCat);
       }
     )
+  }
+
+  deleteFilm(id: number): void {
+    this.filmService.deleteFilm(id).subscribe( reponse => {
+      alert("Le film a été supprimé")
+      this.unRouteur.navigate(['/films'])
+      }
+    )
+
   }
 
   listeAct(acteurs){

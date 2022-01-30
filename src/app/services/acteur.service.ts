@@ -42,6 +42,12 @@ export class ActeurService {
 
   }
 
+  deleteActeur(id: number): Observable<any> {
+    this.acteurUrl = ENDPOINT + 'acteur/delete/' + id ;
+
+    return this.httpActeur.delete<Film>(this.acteurUrl, {headers: this.mesHeaders});
+  }
+
 
 
 // Modification d'un acteur
