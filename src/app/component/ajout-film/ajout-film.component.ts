@@ -116,7 +116,6 @@ export class AjoutFilmComponent implements OnInit {
         this.dataImage = reader.result.slice(22);
         console.log(reader.result.slice(22));
       }
-      this.dataImage = reader.result;
     };
   }
 }

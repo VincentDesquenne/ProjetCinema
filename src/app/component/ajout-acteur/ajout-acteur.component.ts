@@ -66,12 +66,21 @@ export class AjoutActeurComponent implements OnInit {
 
   filetoBase64(event) {
     const file = event.target.files[0];
+    const type = file.type;
     const reader = new FileReader();
+    console.log(reader);
     reader.readAsDataURL(file);
     reader.onload = () => {
-      this.dataImage = reader.result;
+      if( type == 'image/jpeg'){
+        this.dataImage = reader.result.slice(23);
+        console.log(reader.result.slice(23));
+      }else{
+        this.dataImage = reader.result.slice(22);
+        console.log(reader.result.slice(22));
+      }
     };
   }
+
   listerFilm(): void{
     this.unFS.getFilmsListe().subscribe(
       filmResponse => {
