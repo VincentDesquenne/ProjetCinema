@@ -13,9 +13,9 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.connected = window.localStorage.getItem("user").length > 0;
+    this.connected = localStorage.getItem("user").length > 0;
     this.connected ? this.cinemaepul = "/welcome" : this.cinemaepul = "/connexion";
-    this.admin = window.localStorage.getItem("role") == "admin" ? true : false;
+    this.admin = localStorage.getItem("role") == "admin" ? true : false;
   }
 
   deconnexion(): void {

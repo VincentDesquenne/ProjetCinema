@@ -37,7 +37,7 @@ export class ViewFilmComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('noFilm');
-    this.admin = window.localStorage.getItem("role") == "admin" ? true : false;
+    this.admin = localStorage.getItem("role") == "admin" ? true : false;
     this.findFilm(this.id);
   }
 

@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.containerStyle = 'container';
+    window.localStorage.removeItem('user');
+    window.localStorage.removeItem('role');
     this.loginForm = new FormGroup({
       nom: this.nomControl,
       prenom: this.prenomControl,

@@ -30,7 +30,7 @@ export class ViewActeurComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('noAct');
-    this.admin = window.localStorage.getItem("role") == "admin" ? true : false;
+    this.admin = localStorage.getItem("role") == "admin" ? true : false;
     this.findActeur(this.id);
   }
 
