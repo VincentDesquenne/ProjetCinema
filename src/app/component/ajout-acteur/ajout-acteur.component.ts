@@ -57,6 +57,7 @@ export class AjoutActeurComponent implements OnInit {
     this.unAS.addActeur(unActeur).subscribe(
       reponse => {
         alert('Ajout Acteur réussi');
+        this.router.navigate(['/acteurs'])
       },
       err => {
         alert('Erreur dans ajout du acteur');

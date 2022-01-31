@@ -109,6 +109,7 @@ export class ModifierFilmComponent implements OnInit {
       reponse => {
         alert('modifier Film réussi');
         console.log('Réussi');
+        this.router.navigate(['/films'])
       },
       err => {
         alert('Erreur dans la modification du film, vérifiez tous les champs');

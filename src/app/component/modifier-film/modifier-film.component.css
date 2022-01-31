@@ -148,4 +148,6 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
-
+select{
+  width: 90%;
+}

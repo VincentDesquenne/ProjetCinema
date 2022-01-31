@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {RealisateurService} from '../../services/realisateur.service';
 import {Realisateur} from '../../models/realisateur';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-modifier-realisateur',
@@ -14,7 +15,7 @@ export class ModifierRealisateurComponent implements OnInit {
   modifRealisateurForm: FormGroup;
   realisateurTable: Realisateur[];
 
-  constructor(private unRS: RealisateurService) { }
+  constructor(private unRS: RealisateurService, private router: Router) { }
 
   idControl: FormControl = new FormControl('', Validators.required);
   prenomControl: FormControl = new FormControl('', Validators.required);
@@ -56,6 +57,7 @@ export class ModifierRealisateurComponent implements OnInit {
         reponse => {
           alert('Modification réalisateur réussi');
           console.log('Réussi');
+          this.router.navigate(['/films'])
         },
         err => {
           alert('Erreur dans la modification du réalisateur');

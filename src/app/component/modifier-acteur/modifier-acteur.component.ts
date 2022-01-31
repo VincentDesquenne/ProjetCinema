@@ -58,7 +58,8 @@ export class ModifierActeurComponent implements OnInit {
 
     this.unAS.addActeur(unActeur).subscribe(
       reponse => {
-        alert('Ajout Acteur réussi');
+        alert('Modification acteur réussi');
+        this.router.navigate(['/acteurs'])
       },
       err => {
         alert('Erreur dans ajout du acteur');

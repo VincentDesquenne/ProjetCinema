@@ -38,6 +38,7 @@ export class AjoutCategorieComponent implements OnInit {
       reponse => {
         alert('Catégorie ajoutée');
         console.log(reponse);
+        this.router.navigate(['/welcome'])
       },
       err => {
         alert('Erreur dans ajout de la categorie');

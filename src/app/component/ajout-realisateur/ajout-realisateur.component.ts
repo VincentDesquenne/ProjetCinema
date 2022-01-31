@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {RealisateurService} from '../../services/realisateur.service';
 import {Realisateur} from '../../models/realisateur';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-ajout-realisateur',
@@ -12,7 +13,7 @@ export class AjoutRealisateurComponent implements OnInit {
 
   ajoutRealisateurForm: FormGroup;
 
-  constructor(private unRS: RealisateurService) { }
+  constructor(private unRS: RealisateurService,private router: Router) { }
 
   prenomControl: FormControl = new FormControl('', Validators.required);
   nomControl: FormControl = new FormControl('', Validators.required);
@@ -38,6 +39,7 @@ export class AjoutRealisateurComponent implements OnInit {
         reponse => {
           alert('Ajout Réalisateur réussi');
           console.log('Réussi');
+          this.router.navigate(['/films'])
         },
         err => {
           alert('Erreur dans ajout du réalisateur');

@@ -70,6 +70,7 @@ export class AjoutPersonnageComponent implements OnInit {
     this.unPS.addPersonnage(unPerso).subscribe(
       reponse => {
         alert('Ajout personnage réussi');
+        this.router.navigate(['/films'])
       },
       err => {
         alert('Erreur dans ajout du personnage');

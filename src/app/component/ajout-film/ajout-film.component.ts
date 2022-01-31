@@ -94,6 +94,7 @@ export class AjoutFilmComponent implements OnInit {
       reponse => {
         alert('Ajout Film réussi');
         console.log('Réussi');
+        this.router.navigate(['/films'])
       },
       err => {
         alert('Erreur dans ajout du film');

@@ -91,6 +91,8 @@ export class LoginComponent implements OnInit {
       this.unCS.inscription(unUt).subscribe(
         reponse  => {
           alert('Inscription réussie !!!');
+          window.localStorage.setItem('user', unUt.email);
+          window.localStorage.setItem('role', unUt.role);
           this.router.navigate(['/welcome']);
 
         },
